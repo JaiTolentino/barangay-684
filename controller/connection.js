@@ -6,9 +6,4 @@ const pool = mysql.createConnection({
     database: 'barangay684',
     port: 3306
 })
-if (pool) {
-    console.log("Database connected successfully");
-} else {
-    console.log("Database failed to connect");
-}
 module.exports = pool;
