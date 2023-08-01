@@ -1,0 +1,100 @@
+html, body, div, p {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Anek Gujarati', sans-serif;
+}
+
+.sidebar {
+  width: 454px;
+  height: 100vh;
+  background-color: rgba(55, 94, 65, 0.80);
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw ;
+}
+
+.sidebar img {
+  position: absolute;
+  left: 90px;
+  top: 110px;
+  width: 250px;
+  height: 250px;
+}
+
+.sidebar-name {
+  margin: auto;
+  margin-top: 85vh;
+  text-align: center;
+  padding: 4%;
+  background-color: #F9F8F0;
+  border: black;
+  border-style: solid 3px;
+}
+
+.login-box-container {
+  flex: 1;
+  background-color: #fff;
+}
+
+.login-box {
+  background-color: rgba(55, 94, 65, 0.80);
+  padding: 100px 35px;
+  border-radius: 33px;
+  color: #fff;
+  text-align: center;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.usernamepass {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.usernamepass label {
+  width: 100px;
+  margin-right: 10px;
+  margin-top: 20px;
+
+}
+
+input[type="text"],
+input[type="password"] {
+  flex: 1;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 20px;
+
+}
+
+button {
+  padding: 10px 2px;
+  background-color: #375E41;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100px;
+  margin-left: 150px;
+  margin-top: 30px;
+
+}
+
+button:hover {
+  background-color: #2F4C33;
+}
+
