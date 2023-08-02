@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>sample admin list -- kapitan</h1>
+    <div class="container">
+        <div class="sidebar">
+          <div class="Hi-Kap-con">
+            <h1>Hi Kap!</h1>
+            <h2>684</h2>
+          </div>  
+          <ul class="sidebar-buttons">
+            <li ><a href="#" >Home</a></li>
+            <li ><a href="#" class="admin-sidebar">Add Admin</a></li>
+            <li><a href="#">Masterlists</a></li>
+            <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
+          </ul>
+          <ul class="sidebar-buttons logout-button">
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+    <div class="content">
+    <div class="pcontainer1">
+        <div class="plist">
+            <div class="section-centeredflex">
+                <table class="prospecttable">
+                    <tr>                    
+                        <th class="prospectth">First Name</th>
+                        <th class="prospectth">Last Name</th>
+                        <th class="prospectth">BirthDate</th>
+                        <th class="prospectth">Position</th>
+                        <th class="prospectth">Operation</th>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>1990-01-01</td>
+                        <td>Manager</td>
+                        <td>
+                            <button class="prospectedit">Edit</button>
+                            <button class="prospectdelete">Delete</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
