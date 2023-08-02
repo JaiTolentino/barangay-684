@@ -33,6 +33,9 @@ routes.get("/kapitan/admin/add-admin", (req, res) => {
 routes.get("/kapitan/admin/list", (req, res) => {
     req.session.resetMaxAge;
     req.session.kapitan ? res.render('kapitan/kapitan-admin-list') : res.redirect('/');
+    kapitan_connection.query("SELECT * FROM users WHERE position = 'admin'", (req, res) =>{
+        
+    })
 })
 routes.get("/kapitan/master/list", (req,res) => {
     req.session.resetMaxAge;
