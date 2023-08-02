@@ -9,6 +9,7 @@ const ip = require('ip')
 app.use(session({
     secret: secret,
     resave: false,
+    cookie: {maxAge: 10800000},
     saveUninitialized: true
 }));
 app.set('view engine', 'hbs');
@@ -17,6 +18,6 @@ app.use(express.static('views/assets'));
 app.use('/images', express.static('images'));
 app.use('/', mainroute);
 app.use(requests);
-app.listen(4000, ip.address(), () => {
-    console.log("Website IP address: http://" +ip.address()+":4000");
+app.listen(process.env.port, ip.address(), () => {
+    console.log("Website IP address: http://" +ip.address()+":"+process.env.port);
 })
