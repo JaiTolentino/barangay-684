@@ -1,73 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <div class="sidebar">
-      <div class="Hi-Kap-con">
-        <h1>Hi Kap!</h1>
-        <h2>684</h2>
-      </div>  
-      <ul class="sidebar-buttons">
-        <li ><a href="#">Home</a></li>
-        <li ><a href="#" class="admin-sidebar">Add Admin</a></li>
-        <li><a href="#">Masterlists</a></li>
-        <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
-      </ul>
-      <ul class="sidebar-buttons logout-button">
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </div>
-  <div class="content">
-    <div class="registration-form-container">
-      <form action="" type="post" class="registration-form">
-        <div class="form-group">
-          <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" required>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" required>
-        </div>
-
-
-      <div class="password-container">
-        <div class="form-password">
-          <label for="password">BirthDate:</label>
-          <input type="text" id="password" required>
-        </div>
-        <div class="form-confirm-Password">
-          <label for="confirmPassword">Position:</label>
-          <input type="text" id="confirmPassword" required>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="Hi-Kap-con">
+          <h1>Hi Kap!</h1>
+          <h2>684</h2>
+        </div>  
+        <ul class="sidebar-buttons">
+          <li ><a href="#">Home</a></li>
+          <li ><a href="#" class="admin-sidebar">Add Admin</a></li>
+          <li><a href="#">Masterlists</a></li>
+          <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
+        </ul>
+        <ul class="sidebar-buttons logout-button">
+          <li><a href="#">Logout</a></li>
+        </ul>
       </div>
+    <div class="content">
+      <div class="registration-form-container">
+        <form action="/add-admin" method="post" class="registration-form">
+          <p>{{message}}</p>
+          <div class="form-position">
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" required>
+          </div>
 
 
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" required>
-        </div>
-        
- 
-        <div class="password-container">
-          <div class="form-password">
-            <label for="password">Password:</label>
-            <input type="password" id="password" required>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
           </div>
-          <div class="form-confirm-Password">
-            <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" id="confirmPassword" required>
+          
+  
+          <div class="password-container">
+            <div class="form-password">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-confirm-Password">
+              <label for="confirmPassword">Confirm Password:</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
           </div>
-        </div>
-        <button type="submit" class="add-admin-button">Add Admin</button>
-      </form>
+          <button type="submit" class="add-admin-button">Add Admin</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
-</body>
+  </body>
 </html>
