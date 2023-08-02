@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Residents</title>
+  <link rel="stylesheet" href="Add Residents.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="Hi-Kap-con">
+        <h1>Hi Kap!</h1>
+        <h2>684</h2>
+      </div>  
+      <ul class="sidebar-buttons">
+        <li ><a href="#">Home</a></li>
+        <li ><a href="#" class="admin-sidebar">Admin</a></li>
+        <li><a href="#">Masterlists</a></li>
+        <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
+      </ul>
+      <ul class="sidebar-buttons logout-button">
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="registration-forms-container">
+        <p class="alert-message">{{Alert Message}}</p>
+        <form action="" type="post" class="registration-forms">
+            <div class="FL-item">
+                <div class="fl-content">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="fl-content">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+            </div>
+
+            <div class="FL-item">
+                <div class="fl-content">
+                    <label for="address-line-1">Address line 1</label>
+                    <input type="text" name="address-line-1" id="address-line-1" required>
+                </div>
+                <!-- optional from here -->
+                <div class="fl-content">
+                    <label for="address-line-2-container">Address line 2 (Optional)</label>
+                    <input type="text" name="address-line-2" id="address-line-2">
+                </div>
+            </div>    
+            
+            <!-- Until here -->
+            <div class="FL-item">
+                <div class="fl-content">
+                    <label for="address-barangay">Barangay</label>
+                    <input type="text" name="address-barangay" id="address-barangay" required>
+                </div>
+                <div class="fl-content">
+                    <label for="address-city">City</label>
+                    <input type="text" name="address-city" id="address-city" required>
+                </div>
+            </div>
+
+            <div class="FL-item">
+                <div class="fl-content">
+                    <label for="address-country">Country</label>
+                    <input type="text" name="address-country" id="address-country" required>
+                </div>
+                <div class="fl-content">
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" id="birthday" required>
+                </div>
+            </div>
+        
+            <div class="FL-item">
+                <div class="fl-content">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="fl-content">
+                    <label for="contact">Contact:</label>
+                    <input type="text" id="contact" required>
+                </div>
+            </div>
+
+            <div class="FL-item">
+                <div class="fl-content">
+                    <label for="status">Status:</label>
+                    <select id="status" required>
+                    <option value="">Select Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="pending">Pending</option>
+                    </select>
+                </div>
+                <div class="fl-content">
+                    <label for="remarks">Remarks:</label>
+                    <input type="text" id="remarks" required>
+                </div>
+            </div>
+
+            <div class="FL-item">
+                <div class="fl-content">
+                    <label for="medicalCondition">Medical Condition:</label>
+                    <input type="text" id="medicalCondition" required>
+                </div>
+
+                <div class="fl-content-checkbox">
+                        <div class="fl-content-checkbox-content">
+                            <label for="voter">Voter:</label>
+                            <input type="checkbox" id="voter">
+                        </div>
+                        <div class="fl-content-checkbox-content">
+                            <label for="pwd">PWD:</label>
+                            <input type="checkbox" id="pwd">
+                        </div>
+                    </div>
+            </div>
+            <div class="residents-button">
+                <input type="submit" value="add Residents">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
