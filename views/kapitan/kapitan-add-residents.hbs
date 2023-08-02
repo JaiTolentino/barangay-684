@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Residents</title>
-  <link rel="stylesheet" href="Add Residents.css">
+  <link rel="stylesheet" href="../../Add Residents.css">
 </head>
 <body>
   <div class="container">
@@ -14,27 +14,27 @@
         <h2>684</h2>
       </div>  
       <ul class="sidebar-buttons">
-        <li ><a href="#">Home</a></li>
-        <li ><a href="#" class="admin-sidebar">Admin</a></li>
-        <li><a href="#">Masterlists</a></li>
+        <li ><a href="/kapitan/home" class="admin-sidebar">Home</a></li>
+        <li ><a href="/kapitan/admin" >Admin</a></li>
+        <li><a href="/kapitan/masterlist">Masterlists</a></li>
         <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
       </ul>
       <ul class="sidebar-buttons logout-button">
-        <li><a href="#">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </div>
     <div class="content">
       <div class="registration-forms-container">
-        <p class="alert-message">{{Alert Message}}</p>
-        <form action="" type="post" class="registration-forms">
+        <p class="alert-message">{{AlertMessage}}</p>
+        <form action="/add-resident" method="post" class="registration-forms">
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" required>
+                    <input type="text" id="firstName" name="firstName" required>
                 </div>
                 <div class="fl-content">
                     <label for="lastName">Last Name:</label>
-                    <input type="text" id="lastName" required>
+                    <input type="text" id="lastName" name="lastName" required>
                 </div>
             </div>
 
@@ -69,14 +69,14 @@
                 </div>
                 <div class="fl-content">
                     <label for="birthday">Birthday:</label>
-                    <input type="date" id="birthday" required>
+                    <input type="date" id="birthday" name="birthday" required>
                 </div>
             </div>
         
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="gender">Gender:</label>
-                    <select id="gender" required>
+                    <select id="gender" name="gender" required>
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -85,14 +85,14 @@
                 </div>
                 <div class="fl-content">
                     <label for="contact">Contact:</label>
-                    <input type="text" id="contact" required>
+                    <input type="number" id="contact" name="contact" required>
                 </div>
             </div>
 
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="status">Status:</label>
-                    <select id="status" required>
+                    <select id="status" name="status" required>
                     <option value="">Select Status</option>
                     <option value="active">Active</option>
                     <option value="inactive">Inactive</option>
@@ -101,24 +101,24 @@
                 </div>
                 <div class="fl-content">
                     <label for="remarks">Remarks:</label>
-                    <input type="text" id="remarks" required>
+                    <input type="text" id="remarks" name="remarks">
                 </div>
             </div>
 
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="medicalCondition">Medical Condition:</label>
-                    <input type="text" id="medicalCondition" required>
+                    <input type="text" id="medicalCondition" name="medicalCondition">
                 </div>
 
                 <div class="fl-content-checkbox">
                         <div class="fl-content-checkbox-content">
                             <label for="voter">Voter:</label>
-                            <input type="checkbox" id="voter">
+                            <input type="checkbox" id="voter" name="voter">
                         </div>
                         <div class="fl-content-checkbox-content">
                             <label for="pwd">PWD:</label>
-                            <input type="checkbox" id="pwd">
+                            <input type="checkbox" id="pwd" name="pwd">
                         </div>
                     </div>
             </div>

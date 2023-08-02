@@ -24,7 +24,7 @@ routes.get("/kapitan/home", (req, res) => {
 })
 routes.get("/kapitan/admin", (req, res) => {
     req.session.resetMaxAge;
-    req.session.kapitan ? res.render('kapitan/kapitan-admin') : res.redirect('/');
+    req.session.kapitan ? res.render('kapitan/kapitan-admin-option') : res.redirect('/');
 })
 routes.get("/kapitan/admin/add-admin", (req, res) => {
     req.session.resetMaxAge;
@@ -32,14 +32,26 @@ routes.get("/kapitan/admin/add-admin", (req, res) => {
 })
 routes.get("/kapitan/admin/list", (req, res) => {
     req.session.resetMaxAge;
-    req.session.kapitan ? res.render('kapitan/kapitan-admin-list') : res.redirect('/');
-    kapitan_connection.query("SELECT * FROM users WHERE position = 'admin'", (req, res) =>{
-        
-    })
+    if (req.session.kapitan) {
+        kapitan_connection.query("SELECT * FROM users", (err, result) =>{
+            console.log(result);
+            res.render('kapitan/kapitan-admin-list', {data: result})
+        })
+    }else {
+        res.redirect('/');
+    }
 })
-routes.get("/kapitan/master/list", (req,res) => {
+routes.get("/kapitan/masterlist", (req, res) => {
     req.session.resetMaxAge;
-    req.session.kapitan ? res.render('kapitan/kapitan-master-list') : res.redirect('/');
+    req.session.kapitan ? res.render('kapitan/kapitan-residents-option') : res.redirect('/');
+})
+routes.get("/kapitan/masterlist/list", (req, res) => {
+    req.session.resetMaxAge;
+    req.session.kapitan ? res.render('kapitan/kapitan-residents-lists', {data: result}) : res.redirect('/');
+})
+routes.get("/kapitan/masterlist/add", (req,res) => {
+    req.session.resetMaxAge;
+    req.session.kapitan ? res.render('kapitan/kapitan-add-residents') : res.redirect('/');
     kapitan_connection.query("SELECT * FROM masterlist", (req, res) => {
         
     })
