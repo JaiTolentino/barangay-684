@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Lists</title>
-    <link rel="stylesheet" href="Admin Lists.css">
+    <link rel="stylesheet" href="../../Admin Lists.css">
 </head>
 <body>
     <div class="container">
@@ -13,14 +13,14 @@
             <h1>Hi Kap!</h1>
             <h2>684</h2>
           </div>  
-          <ul class="sidebar-buttons">
-            <li ><a href="#" >Home</a></li>
-            <li ><a href="#" class="admin-sidebar">Admin</a></li>
-            <li><a href="#">Masterlists</a></li>
+        <ul class="sidebar-buttons">
+            <li ><a href="/kapitan/home" class="admin-sidebar">Home</a></li>
+            <li ><a href="/kapitan/admin" >Admin</a></li>
+            <li><a href="/kapitan/masterlist">Masterlists</a></li>
             <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
-          </ul>
+        </ul>
           <ul class="sidebar-buttons logout-button">
-            <li><a href="#">Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </div>
     <div class="content">
@@ -29,22 +29,15 @@
             <div class="section-centeredflex">
                 <table class="prospecttable">
                     <tr>                    
-                        <th class="prospectth">First Name</th>
-                        <th class="prospectth">Last Name</th>
-                        <th class="prospectth">BirthDate</th>
+                        <th class="prospectth">Username</th>
                         <th class="prospectth">Position</th>
-                        <th class="prospectth">Operation</th>
                     </tr>
+                    {{#each data}}
                     <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>1990-01-01</td>
-                        <td>Manager</td>
-                        <td>
-                            <button class="prospectedit">Edit</button>
-                            <button class="prospectdelete">Delete</button>
-                        </td>
+                        <td>{{username}}</td>
+                        <td>{{position}}</td>
                     </tr>
+                    {{/each}}
                 </table>
             </div>
         </div>

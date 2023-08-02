@@ -19,10 +19,10 @@ app.post("/",parser.urlencoded({extended: true}), (req, res) => {
                             req.session.kapitan = user;
                             res.redirect('/kapitan/home');
                     }else {
-                        res.render('index', {message: "username/password is incorrect!"});
+                        res.render('index', {AlertMessage: "username/password is incorrect!"});
                     }
                 }else {
-                    res.render('index', {message: "username/password is incorrect!"});
+                    res.render('index', {AlertMessage: "username/password is incorrect!"});
                 }
             }
         })
@@ -37,10 +37,10 @@ app.post("/",parser.urlencoded({extended: true}), (req, res) => {
                         req.session.admin = user;
                         res.redirect('/admin/home');
                     }else {
-                        res.render('index', {message: "username/password is incorrect!"});
+                        res.render('index', {AlertMessage: "username/password is incorrect!"});
                     }
                 }else {
-                    res.render('index', {message: "username/password is incorrect!"});
+                    res.render('index', {AlertMessage: "username/password is incorrect!"});
                 }
             }
         })
@@ -48,24 +48,40 @@ app.post("/",parser.urlencoded({extended: true}), (req, res) => {
 })
 app.post("/add-admin", parser.urlencoded({extended: true}), (req, res) => {
     const {position, username, password, confirmPassword} = req.body;
-    kapitan_connection.query("SELECT username from users WHERE username = ?", [username], (err, result) => {
-        if(err) console.log(err);
-        else{
-            if(result.length > 0) {
-                res.render('kapitan/kapitan-add-admin', {message: "username taken"});
-            }else {
-                if (password === confirmPassword){
-                    const admin_id = mainController.createAdminId(username);
-                    const admin_encrypted_password = mainController.encryptPassword(password);
-                    const admin_created = new Admin(admin_id, username, position, admin_encrypted_password);
-                    kapitan_connection.query("INSERT INTO ")
-                    res.render('kapitan/kapitan-add-admin', {message: "Admin Created"});
-                }else{
-                    res.render('kapitan/kapitan-add-admin', {message: "password do not match"});
+    const comp = position.toUpperCase();
+    if (comp === "KAPITAN"){
+        res.render('kapitan/kapitan-add-admin', {AlertMessage: "Choose different Position"});
+    }else {
+        kapitan_connection.query("SELECT username from users WHERE username = ?", [username], (err, result) => {
+            if(err) console.log(err);
+            else{
+                if(result.length > 0) {
+                    res.render('kapitan/kapitan-add-admin', {AlertMessage: "username taken"});
+                }else {
+                    if (password === confirmPassword){
+                        const admin_id = mainController.createAdminId(username);
+                        const admin_encrypted_password = mainController.encryptPassword(password);
+                        const admin_created = new Admin(admin_id, username, position, admin_encrypted_password);
+                        kapitan_connection.query("INSERT INTO users (user_id, position, username, encrypted_password) VALUES (?,?,?,?)",
+                        [admin_created.getAdminId(),
+                            admin_created.getPosition(),
+                            admin_created.getUsername(),
+                            admin_created.getEncryptedPassword()], (err, result) => {
+                                if (err) console.log(err);
+                                else{
+                                    res.render('kapitan/kapitan-add-admin', {AlertMessage: "Admin Created"});
+                                }
+                            })
+                    }else{
+                        res.render('kapitan/kapitan-add-admin', {AlertMessage: "password do not match"});
+                    }
                 }
             }
-        }
-    })
+        })
+    }
+})
+app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
+    console.log(req.body);
 })
 
 module.exports = app;
