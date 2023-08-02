@@ -1,0 +1,320 @@
+/*login page*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-weight: bold;
+  }
+  
+  .sidebar {
+    width: 455px;
+    height: 100vh;
+    background-color: #5C6B86;
+    border-right: black 1px solid;
+    border-top-right-radius: 3.5vw;
+    border-bottom-right-radius: 3.5vw ;
+    overflow: hidden;
+  }
+  
+  .sidebar img {
+    position: absolute;
+    left: 90px;
+    top: 70px;
+    width: 250px;
+    height: 250px;
+  }
+  
+  .sidebar-name {
+    margin: auto;
+    margin-top: 85vh;
+    font-size: 2em;
+    text-align: center;
+    padding: 4%;
+    background-color: #F9F8F0;
+    border: black;
+    border-style: solid 3px;
+    color: #2F4670;
+  }
+  
+  .login-box-container {
+    flex: 1;
+  }
+  
+  .login-box {
+    background-color:#5C6B86;
+    padding: 100px 35px;
+    border-radius: 33px;
+    color: #fff;
+    text-align: center;
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .usernamepass {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .usernamepass label {
+    width: 100px;
+    margin-right: 10px;
+    margin-top: 20px;
+    font-size: 1em;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    border-radius: 15px;
+  }
+  
+  button {
+    background-color: #2F4670;
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  button:hover {
+    background-color: #7b8aa7;
+  }
+  
+  
+  /* Add admin CSS */
+  
+  
+  .pcontainer1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    margin: 0 auto;
+    padding: 1vh;
+    position: absolute;
+    top: 5vh;
+    left: calc(454px + 20px);
+    right: 0;
+  }
+  
+  .plist {
+    margin-top: 2vh;
+    margin-left: -5vw;
+  }
+  
+  .prospecttable {
+    width: 73vw;
+    border-collapse: collapse;
+    margin-left: -2.5vw;
+  }
+  
+  .prospecttable th,
+  .prospecttable td {
+    padding: 1vw;
+    text-align: center;
+    border-bottom: 1px solid rgba(204, 204, 204, 1);
+  }
+  
+  .prospecttable th {
+    background-color: #5C6B86;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .prospectedit,
+  .prospectdelete {
+    margin-left: 0vw;
+    margin-right: 0vw;
+    width: 6vw;
+    font-size: 1em;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    background-color: #5C6B86;
+  }
+  
+  .prospectdelete {
+    margin-left: 1vw;
+    background-color: rgb(184, 58, 58);
+  }
+  
+  .prospectedit:hover {
+    background-color: #7b8aa7;
+    outline: none;
+    outline-offset: -4px;
+  }
+  
+  .prospectdelete:hover {
+    background-color: rgba(184, 58, 58, 0.80);
+    outline: none;
+    outline-offset: -4px;
+  }
+  
+  /* register aeyan */
+  
+  @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500&family=Overpass:wght@400;800&family=Roboto&display=swap');
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: #F9F8F0;
+    }
+    h1, h2{
+      margin: 0;
+      padding: 0;
+    }
+  
+  .container {
+    display: flex;
+  }
+  
+  
+  .Hi-Kap-con{
+    width: 100%;
+    padding: 5%;
+  }
+    .Hi-Kap-con h2{
+      text-align: center;
+    }
+  .sidebar h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color:#F9F8F0
+  }
+  
+  .sidebar h2 {
+    font-size: 60px;
+    font-weight: bold;
+    color:#F9F8F0
+  }
+  
+  .sidebar-buttons {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .sidebar-buttons li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-buttons a {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: #2F4670;
+    text-decoration: none;
+    padding: 25px;
+    border-radius: 0px;
+    background-color: #F9F8F0;
+  }
+  
+  .sidebar-buttons .admin-sidebar{
+    background-color: #2F4670;
+    color:bisque;
+  }
+  
+  .sidebar-buttons a:hover {
+    background-color: #7b8aa7;
+    color: bisque ;
+  
+  }
+  
+  .sidebar-buttons.logout-button {
+    margin-top: 25vh;
+  }
+  
+  .content {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9F8F0;
+  }
+  
+     .registration-form-container {
+      height: 60%;
+      width: 70%;
+      display: flex;
+      justify-content: center;
+    }
+      .content .registration-form-container .registration-form {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5%;
+      }
+        .content .registration-form-container .registration-form .form-group {
+          width: 100%;
+          height: 40%;
+          display: flex;
+          flex-direction: column;
+          color:#2F4670;
+        }
+        .content .registration-form-container .registration-form .form-group input{
+          background-color: #5C6B86;
+          height: 50%;
+          width: 100%;
+          border-radius: 18px;
+          text-indent: 20px;
+          font-size: 1.5rem;
+          color:#2F4670;
+          border: none;
+        }
+        .content .registration-form-container .registration-form .password-container {
+          height: 40%;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 5%;
+        }
+        .content .registration-form-container .registration-form .password-container input{
+          background-color: #5C6B86;
+          height: 50%;
+          width: 100%;
+          border: none;
+          border-radius: 18px;
+          text-indent: 20px;
+          font-size: 1.5rem;
+          color:#F9F8F0;
+        }
+          .content .registration-form-container .registration-form .password-container .form-password, .form-confirm-Password {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            color: #2F4670;
+          }
+        .content .registration-form-container .registration-form .add-admin-button {
+          width: 30%;
+          height: 20%;
+          border-radius: 18px;
+          border: none;
+          margin-right: -1vw;
+          margin-top: 10vh;
+          font-family: 'Albert Sans', sans-serif;
+          font-family: 'Overpass', sans-serif;
+          font-family: 'Roboto', sans-serif;
+          font-weight: bolder;
+          font-size: 25px;
+          color: #F9F8F0;
+        }
+
+        p.alert-message {
+          color: rgb(0, 0, 0);
+          padding: 10px;
+          text-align: center;
+        }

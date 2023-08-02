@@ -1,0 +1,109 @@
+/*login page*/
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+}
+
+.sidebar {
+  width: 455px;
+  height: 100vh;
+  background-color: #5C6B86;
+  border-right: black 1px solid;
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw ;
+  overflow: hidden;
+}
+
+.sidebar img {
+  position: absolute;
+  left: 90px;
+  top: 70px;
+  width: 250px;
+  height: 250px;
+}
+
+.sidebar-name {
+  margin: auto;
+  margin-top: 85vh;
+  font-size: 2em;
+  text-align: center;
+  padding: 4%;
+  background-color: #F9F8F0;
+  border: black;
+  border-style: solid 3px;
+  color: #2F4670;
+}
+
+.login-box-container {
+  flex: 1;
+}
+
+.login-box {
+  background-color:#5C6B86;
+  padding: 100px 35px;
+  border-radius: 33px;
+  color: #fff;
+  text-align: center;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.usernamepass {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.usernamepass label {
+  width: 100px;
+  margin: 10px 20px 20px 0px; 
+  font-size: 1em;
+  align-items: baseline;
+}
+
+input[type="text"],
+input[type="password"] {
+  margin: 10px 20px 20px 0px; 
+  border-radius: 15px;
+  width: 70%;
+  border: none;
+  padding: 3%;
+}
+
+button {
+  background-color: #2F4670;
+  color: #fff;
+  align-self: center;
+  width: 50%;
+  margin-top: 10%;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 3%;
+}
+
+button:hover {
+  background-color: #7b8aa7;
+}
+
+p.alert-message {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: center;
+}
+
+
