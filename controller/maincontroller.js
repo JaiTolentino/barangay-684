@@ -20,7 +20,7 @@ function calculateAge(birthDateString) {
     const currentDate = new Date();
     const ageInMilliseconds = currentDate - birthDate;
     const ageInYears = new Date(ageInMilliseconds).getUTCFullYear() - 1970;
-    return ageInYears;
+    return ageInYears+ " years old";
 }
 function convertToInternationalFormat(localNumber) {
     const countryCode = "+63";
@@ -31,4 +31,19 @@ function convertToInternationalFormat(localNumber) {
       return localNumber;
     }
   }
-module.exports = {encryptPassword, comparePassword, createAdminId, calculateAge, convertToInternationalFormat};
+  function convertDateToWorded(date) {
+    date = '2003-07-13';
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    const wordedOutput = months[month] + " " + day + ", " + year;
+    console.log(wordedOutput);
+    return wordedOutput;
+}
+module.exports = {encryptPassword, comparePassword, createAdminId, calculateAge, convertToInternationalFormat, convertDateToWorded};
