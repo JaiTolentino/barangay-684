@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const connection = require('./connection');
+const kapitan_connection = require('./kapitan_connection');
+const admin_connection = require('./admin_connection');
 const parser = require('body-parser');
 const mainController = require('./maincontroller');
 const User = require('../model/user')
@@ -8,7 +9,7 @@ const User = require('../model/user')
 app.post("/",parser.urlencoded({extended: true}), (req, res) => {
     const {username, passwords} = req.body;
     if(username === "KapitanTang"){
-        connection.query("SELECT * FROM users WHERE username = ?",[username], (error, result) => {
+        kapitan_connection.query("SELECT * FROM users WHERE username = ?",[username], (error, result) => {
             if(error) console.log(error);
             else{
                 if(result.length > 0){
@@ -26,11 +27,10 @@ app.post("/",parser.urlencoded({extended: true}), (req, res) => {
             }
         })
     } else {
-        connection.query("SELECT * FROM users WHERE username = ?",[username], (error, result) => {
+        admin_connection.query("SELECT * FROM users WHERE username = ?",[username], (error, result) => {
             if(error) console.log(error);
             else{
                 if(result.length > 0){
-                    
                     if(mainController.comparePassword(passwords, result[0]['encrypted_password'])){
                         const user = new User(result[0]['id'], result[0]['fname'], result[0]['lname'], result[0]['birthdate'],
                             result[0]['position'], result[0]['username'], result[0]['encrypted_password']);
