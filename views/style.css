@@ -1,3 +1,5 @@
+/*login page*/
+
 .container {
   display: flex;
   justify-content: center;
@@ -94,16 +96,16 @@ button:hover {
 }
 
 
-/* PROSPECT CSS */
+/* Add admin CSS */
+
 
 .pcontainer1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 150vw;
   height: 50vh;
   margin: 0 auto;
-  padding: 5vh;
+  padding: 1vh;
   position: absolute;
   top: 5vh;
   left: calc(454px + 20px);
@@ -112,17 +114,19 @@ button:hover {
 
 .plist {
   margin-top: 2vh;
+  margin-left: -5vw;
 }
 
 .prospecttable {
-  width: 60vw;
+  width: 73vw;
   border-collapse: collapse;
+  margin-left: -2.5vw;
 }
 
 .prospecttable th,
 .prospecttable td {
-  padding: 2vw;
-  text-align: center; /* Center the content horizontally */
+  padding: 1vw;
+  text-align: center;
   border-bottom: 1px solid rgba(204, 204, 204, 1);
 }
 
@@ -161,9 +165,7 @@ button:hover {
   outline-offset: -4px;
 }
 
-
-
-
+/* register aeyan */
 
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500&family=Overpass:wght@400;800&family=Roboto&display=swap');
 body {
@@ -214,7 +216,7 @@ body {
   display: flex; 
   align-items: center; 
   justify-content: center;
-  color: #28462f;
+  color: #2F4670;
   text-decoration: none;
   padding: 25px;
   border-radius: 0px;
@@ -222,18 +224,18 @@ body {
 }
 
 .sidebar-buttons .admin-sidebar{
-  background-color: rgba(55,94,65);
+  background-color: #2F4670;
   color:bisque;
 }
 
 .sidebar-buttons a:hover {
-  background-color: #375E41;
+  background-color: #7b8aa7;
   color: bisque ;
 
 }
 
 .sidebar-buttons.logout-button {
-  margin-top: 34vh;
+  margin-top: 25vh;
 }
 
 .content {
@@ -265,15 +267,16 @@ body {
         height: 100%;
         display: flex;
         flex-direction: column;
+        color:#2F4670;
       }
       .content .registration-form-container .registration-form .form-group input{
-        background-color: rgba(55, 94, 65,0.8);
+        background-color: #5C6B86;
         height: 50%;
         width: 100%;
         border-radius: 18px;
         text-indent: 20px;
         font-size: 1.5rem;
-        color:#F9F8F0;
+        color:#2F4670;
         border: none;
       }
       .content .registration-form-container .registration-form .password-container {
@@ -285,7 +288,7 @@ body {
         gap: 5%;
       }
       .content .registration-form-container .registration-form .password-container input{
-        background-color: rgba(55, 94, 65,0.8);
+        background-color: #5C6B86;
         height: 50%;
         width: 100%;
         border: none;
@@ -300,13 +303,14 @@ body {
           display: flex;
           justify-content: center;
           flex-direction: column;
+          color: #2F4670;
         }
       .content .registration-form-container .registration-form .add-admin-button {
         width: 30%;
-        background-color: rgba(55, 94, 65,0.8);
         height: 40%;
         border-radius: 18px;
         border: none;
+        margin-right: 8vw;
         font-family: 'Albert Sans', sans-serif;
         font-family: 'Overpass', sans-serif;
         font-family: 'Roboto', sans-serif;
@@ -315,3 +319,5 @@ body {
         color: #F9F8F0;
       }
   
+/*Masterlist*/
+
