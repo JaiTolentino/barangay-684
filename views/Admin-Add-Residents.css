@@ -4,46 +4,48 @@ body {
   padding: 0;
   font-family: 'Josefin Sans', sans-serif;
 }
+
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-weight: bold;
-  }
-  
-  .sidebar {
-    width: 350px;
-    height: 100vh;
-    background-color: #5C6B86;
-    border-right: black 1px solid;
-    border-top-right-radius: 3.5vw;
-    border-bottom-right-radius: 3.5vw;
-    overflow: hidden;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+}
+
+.sidebar {
+  width: 596px;
+  height: 100vh;
+  background-color: #5C6B86;
+  border-right: black 1px solid;
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw;
+  overflow: hidden;
+}
   
   .sidebar img {
-    position: absolute;
-    left: 90px;
-    top: 70px;
-    width: 250px;
-    height: 250px;
+      position: absolute;
+      left: 90px;
+      top: 70px;
+      width: 250px;
+      height: 250px;
   }
   
   .sidebar-name {
-    margin: auto;
-    margin-top: 85vh;
-    font-size: 2em;
-    text-align: center;
-    padding: 4%;
-    background-color: #F9F8F0;
-    border: black;
-    border-style: solid 3px;
-    color: #2F4670;
+      margin: auto;
+      margin-top: 85vh;
+      font-size: 2em;
+      text-align: center;
+      padding: 4%;
+      background-color: #F9F8F0;
+      border: black;
+      border-style: solid 3px;
+      color: #2F4670;
   }
   
   .login-box-container {
-    flex: 1;
+      flex: 1;
   }
   
   .login-box {
@@ -155,7 +157,7 @@ body {
   }
   
   .sidebar-buttons.logout-button {
-    margin-top: 35vh;
+    margin-top: 40vh;
   }
   
   .content {
@@ -200,6 +202,11 @@ body {
     width: 40%;
     height: 60%;
   }
+
+  .fl-content-checkbox input[type="checkbox"] {
+    width: 30px; 
+    height: 30px; 
+  }
   .fl-content-checkbox {
     display: flex;
     align-items: center;
@@ -223,6 +230,7 @@ body {
     background-color: #5C6B86;
     border-radius: 33px;
     text-indent: 3%;
+    color: rgb(255, 255, 255);
   }
   .residents-button{
     width: 100%;
@@ -236,8 +244,9 @@ body {
     height: 50%;
     border-radius: 33px;
     background-color: #2F4670;
-    color: black;
+    color:rgb(255, 255, 255);
     font-size: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   p.alert-message {

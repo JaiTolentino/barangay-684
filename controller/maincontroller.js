@@ -12,7 +12,8 @@ function comparePassword(plainpassword, encrypted_password) {
 }
 function createAdminId(admin_username){
     let uppercased = admin_username.toUpperCase();
-    const adminId = uppercased.replace(/[aeiou]/gi, '');
+    const rawadminId = uppercased.replace(/[aeiou]/gi, '');
+    const adminId = rawadminId.replace(/\s/g, '')
     return adminId;
 }
 function calculateAge(birthDateString) {
@@ -31,7 +32,6 @@ function convertToInternationalFormat(localNumber) {
       return localNumber;
     }
   }
-
 function checkboxValue(checkbox){
   if (checkbox === "yes"){
     return "yes";

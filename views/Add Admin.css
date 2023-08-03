@@ -4,46 +4,47 @@ body {
   padding: 0;
   font-family: 'Josefin Sans', sans-serif;
 }
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-weight: bold;
-  }
-  
-  .sidebar {
-    width: 350px;
-    height: 100vh;
-    background-color: #5C6B86;
-    border-right: black 1px solid;
-    border-top-right-radius: 3.5vw;
-    border-bottom-right-radius: 3.5vw;
-    overflow: hidden;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+}
+
+.sidebar {
+  width: 586px;
+  height: 100vh;
+  background-color: #5C6B86;
+  border-right: black 1px solid;
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw;
+  overflow: hidden;
+}
   
   .sidebar img {
-    position: absolute;
-    left: 90px;
-    top: 70px;
-    width: 250px;
-    height: 250px;
+      position: absolute;
+      left: 90px;
+      top: 70px;
+      width: 250px;
+      height: 250px;
   }
   
   .sidebar-name {
-    margin: auto;
-    margin-top: 85vh;
-    font-size: 2em;
-    text-align: center;
-    padding: 4%;
-    background-color: #F9F8F0;
-    border: black;
-    border-style: solid 3px;
-    color: #2F4670;
+      margin: auto;
+      margin-top: 85vh;
+      font-size: 2em;
+      text-align: center;
+      padding: 4%;
+      background-color: #F9F8F0;
+      border: black;
+      border-style: solid 3px;
+      color: #2F4670;
   }
   
   .login-box-container {
-    flex: 1;
+      flex: 1;
   }
   
   .login-box {
@@ -107,7 +108,7 @@ body {
   
   .plist {
     margin-top: 2vh;
-    margin-left: -5vw;
+    margin-left: -5vw;  
   }
   
   .prospecttable {
@@ -221,8 +222,8 @@ body {
   }
   
   .sidebar-buttons.logout-button {
-    margin-top: 25vh;
-  }
+    margin-top: 35vh;
+  }  
   
   .content {
     display: flex;

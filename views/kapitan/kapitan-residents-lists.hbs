@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masterlist page</title>
-    <link rel="stylesheet" href="../../masterlist.css">
+    <link rel="stylesheet" href="../../Masterlist.css">
 </head>
 <body>
     <div class="container">
@@ -14,9 +14,9 @@
             <h2>684</h2>
           </div>  
           <ul class="sidebar-buttons">
-            <li ><a href="/kapitan/home" class="admin-sidebar">Home</a></li>
+            <li ><a href="/kapitan/home">Home</a></li>
             <li ><a href="/kapitan/admin" >Admin</a></li>
-            <li><a href="/kapitan/masterlist">Masterlists</a></li>
+            <li><a href="/kapitan/masterlist" class="admin-sidebar">Master Lists</a></li>
             <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
         </ul>
           <ul class="sidebar-buttons logout-button">
@@ -29,37 +29,46 @@
                 <div class="section-centeredflex">
                     <table class="prospecttable">
                         <tr>                    
-                            <th class="prospectth">Full Name</th>
-                            <th class="prospectth">Address</th>
-                            <th class="prospectth">Age</th>
-                            <th class="prospectth">BirthDate</th>
-                            <th class="prospectth">Gender</th>
-                            <th class="prospectth">Contact No.</th>
-                            <th class="prospectth">Status</th>
-                            <th class="prospectth">Remarks</th>
-                            <th class="prospectth">Medical Condition</th>
-                            <th class="prospectth">Voter</th>
-                            <th class="prospectth">PWD</th>
+                            <th class="prospectth"><button type="submit">Full Name</button></th>
+                            <th class="prospectth"><button type="submit">Address</button></th>
+                            <th class="prospectth"><button type="submit">Age</button></th>
+                            <th class="prospectth"><button type="submit">BirthDate</button></th>
+                            <th class="prospectth"><button type="submit">Gender</button></th>
+                            <th class="prospectth"><button type="submit">Contact No.</button></th>
+                            <th class="prospectth"><button type="submit">Marital Status</button></th>
+                            <th class="prospectth"><button type="submit">Remarks</button></th>
+                            <th class="prospectth"><button type="submit">Medical Condition</button></th>
+                            <th class="prospectth"><button type="submit">Voter</button></th>
+                            <th class="prospectth"><button type="submit">PWD</button></th>
                         </tr>
                         {{#each data}}
-                        <tr>
-                            <td>{{fname}} {{lname}}</td>
-                            <td>{{address}}</td>
-                            <td>{{age}} years old</td>
-                            <td>{{birthdate}}</td>
-                            <td>{{gender}}</td>
-                            <td>{{contact}}</td>
-                            <td>{{status}}</td>
-                            <td>{{remarks}}</td>
-                            <td>{{medical_condition}}</td>
-                            <td>{{is_voter}}</td>
-                            <td>{{is_pwd}}</td>
-                        </tr>
+                            <form action="/edit-resident" method="post" id="edit-form">
+                                <input type="hidden" name="editresident" id="editresident" value="{{resident_id}}">
+                                    <tr class="table-row" onclick="submiteditform()">
+                                        <td>{{fname}} {{lname}}</td>
+                                        <td>{{address}}</td>
+                                        <td>{{age}}</td>
+                                        <td>{{birthdate}}</td>
+                                        <td>{{gender}}</td>
+                                        <td>{{contact}}</td>
+                                        <td>{{status}}</td>
+                                        <td>{{remarks}}</td>
+                                        <td>{{medical_condition}}</td>
+                                        <td>{{is_voter}}</td>
+                                        <td>{{is_pwd}}</td>
+                                    </tr>
+                            </form>
                         {{/each}}
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        let form = document.getElementById("edit-form");
+        function submiteditform(){
+            form.submit();
+        }
+    </script>
 </body>
 </html>

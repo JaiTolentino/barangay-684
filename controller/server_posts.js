@@ -5,7 +5,8 @@ const admin_connection = require('./admin_connection');
 const parser = require('body-parser');
 const mainController = require('./maincontroller');
 const Admin = require('../model/Admin');
-const Resident = require('../model/HeadResident');
+const Resident = require('../model/Resident');
+const Address = require('../model/Address');
 
 app.post("/",parser.urlencoded({extended: true}), (req, res) => {
     const {username, passwords} = req.body;
@@ -83,126 +84,168 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
     if (req.session.kapitan){
         const admin = new Admin(req.session.kapitan.admin_id, req.session.kapitan.username,
             req.session.kapitan.position, req.session.kapitan.encrypted_password);
-        const {firstName,
-            lastName,
-            addressline1,
-            addressline2, 
-            addressbarangay,
-            addresscity,
-            addresscountry,
-            birthday,
-            gender,
-            contact,
-            status,
-            remarks,
-            medicalCondition,
-            voter,
-            pwd} = req.body;
-            const one = mainController.createAdminId(firstName);
-            const two = mainController.createAdminId(lastName);
-            const user_id = one+two;
-            const resident = new Resident(user_id,
-                                            firstName,
-                                            lastName,
-                                            contact,
-                                            birthday,
-                                            gender,
-                                            addressline1,
-                                            addressline2,
-                                            addressbarangay,
-                                            addresscountry,
-                                            voter,
-                                            pwd,
-                                            medicalCondition,
-                                            status,
-                                            remarks,
-                                            new Date(),
-                                            admin.getUsername()
-                                            );
-            kapitan_connection.query("INSERT INTO masterlist (resident_id, fname, lname, contact, birthdate, gender, age, address, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?, ?,?,?,?,?,?,?,?,?,?,?,?,?)",[
-                resident.getResidentId(),
-                resident.getFname(),
-                resident.getLname(),
-                resident.getContactNum(),
-                resident.getBirthdate(),
-                resident.getGender(),
-                resident.getAge(),
-                resident.getAddress().getFullAddress(),
-                resident.getIsVoter(),
-                resident.getIsPwd(),
-                resident.getMedicalCondition().getDisease(),
-                resident.getStatus(),
-                resident.getRemarks(),
-                admin.getUsername()
-            ], (err, results) => {
-                if (err) console.log(err);
-                else {
-                    res.render('kapitan/kapitan-add-residents', {AlertMessage: "Resident Recorded"})
-                }
-            })
+            const {firstName,
+                lastName,
+                addressline1,
+                addressline2, 
+                addressbarangay,
+                addresscity,
+                addresscountry,
+                birthday,
+                gender,
+                contact,
+                status,
+                remarks,
+                medicalCondition,
+                voter,
+                pwd} = req.body;
+                const one = mainController.createAdminId(firstName);
+                const two = mainController.createAdminId(lastName);
+                const three = mainController.createAdminId(addressline1);
+                const user_id = one+two+three;
+                console.log("Create resident");
+                const resident = new Resident(
+                    user_id,
+                    firstName,
+                    lastName,
+                    contact,
+                    birthday,
+                    gender,
+                    voter,
+                    pwd,
+                    medicalCondition,
+                    status,
+                    remarks,
+                    new Date(),
+                    admin.getUsername()
+                    );
+                const resident_address = new Address(
+                    resident.getResidentId(),
+                    addressline1,
+                    addressline2,
+                    addressbarangay,
+                    addresscity,
+                    addresscountry
+                    );
+                    kapitan_connection.query("INSERT INTO masterlist (resident_id, fname, lname, contact, birthdate, gender, age, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[
+                        resident.getResidentId(),
+                        resident.getFname(),
+                        resident.getLname(),
+                        resident.getContactNum(),
+                        resident.getBirthdate(),
+                        resident.getGender(),
+                        resident.getAge(),
+                        resident.getIsVoter(),
+                        resident.getIsPwd(),
+                        resident.getMedicalCondition(),
+                        resident.getStatus(),
+                        resident.getRemarks(),
+                        admin.getUsername()
+        
+                    ], (err, results) => {
+                        if (err) console.log(err);
+                        else {
+                            res.render('kapitan/kapitan-add-residents', {AlertMessage: "Resident Recorded"})
+                        }
+                    })
+                    kapitan_connection.query("INSERT INTO address (address_id, addressline1, addressline2, barangay, city, country) VALUES (?,?,?,?,?,?)",
+                    [resident.getResidentId(),
+                    resident_address.getAddressLine1(),
+                    resident_address.getAddressLine2(),
+                    resident_address.getBarangay(),
+                    resident_address.getCity(),
+                    resident_address.getCountry()
+                    ], (err, results) => {
+                    if(err) console.log("INSERT ADDRESS ERROR: "+err);
+                    else{
+                        res.render('kapitan/kapitan-add-residents', {AlertMessage: "Resident Recorded"})
+                    }
+                    })
     }else if (req.session.admin){
         const admin = new Admin(req.session.admin.admin_id, req.session.admin.username,
             req.session.admin.position, req.session.admin.encrypted_password);
-        const {firstName,
-            lastName,
-            addressline1,
-            addressline2, 
-            addressbarangay,
-            addresscity,
-            addresscountry,
-            birthday,
-            gender,
-            contact,
-            status,
-            remarks,
-            medicalCondition,
-            voter,
-            pwd} = req.body;
-            const one = mainController.createAdminId(firstName);
-            const two = mainController.createAdminId(lastName);
-            const user_id = one+two;
-            const resident = new Resident(user_id,
-                                            firstName,
-                                            lastName,
-                                            contact,
-                                            birthday,
-                                            gender,
-                                            addressline1,
-                                            addressline2,
-                                            addressbarangay,
-                                            addresscountry,
-                                            voter,
-                                            pwd,
-                                            medicalCondition,
-                                            status,
-                                            remarks,
-                                            new Date(),
-                                            admin.getUsername());
-            admin_connection.query("INSERT INTO masterlist (resident_id, fname, lname, contact, birthdate, gender, age, address, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[
-                resident.getResidentId(),
-                resident.getFname(),
-                resident.getLname(),
-                resident.getContactNum(),
-                resident.getBirthdate(),
-                resident.getGender(),
-                resident.getAge(),
-                resident.getAddress().getFullAddress(),
-                resident.getIsVoter(),
-                resident.getIsPwd(),
-                resident.getMedicalCondition().getDisease(),
-                resident.getStatus(),
-                resident.getRemarks(),
-                admin.getUsername()
-
-            ], (err, results) => {
-                if (err) console.log(err);
-                else {
-                    res.render('admin/admin-add-residents', {AlertMessage: "Resident Recorded"})
-                }
-            })
+            const {firstName,
+                lastName,
+                addressline1,
+                addressline2, 
+                addressbarangay,
+                addresscity,
+                addresscountry,
+                birthday,
+                gender,
+                contact,
+                status,
+                remarks,
+                medicalCondition,
+                voter,
+                pwd} = req.body;
+                const one = mainController.createAdminId(firstName);
+                const two = mainController.createAdminId(lastName);
+                const three = mainController.createAdminId(addressline1);
+                const user_id = one+two+three;
+                console.log("Create resident");
+                const resident = new Resident(
+                    user_id,
+                    firstName,
+                    lastName,
+                    contact,
+                    birthday,
+                    gender,
+                    voter,
+                    pwd,
+                    medicalCondition,
+                    status,
+                    remarks,
+                    new Date(),
+                    admin.getUsername()
+                    );
+                const resident_address = new Address(
+                    resident.getResidentId(),
+                    addressline1,
+                    addressline2,
+                    addressbarangay,
+                    addresscity,
+                    addresscountry
+                    );
+                    admin_connection.query("INSERT INTO masterlist (resident_id, fname, lname, contact, birthdate, gender, age, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[
+                        resident.getResidentId(),
+                        resident.getFname(),
+                        resident.getLname(),
+                        resident.getContactNum(),
+                        resident.getBirthdate(),
+                        resident.getGender(),
+                        resident.getAge(),
+                        resident.getIsVoter(),
+                        resident.getIsPwd(),
+                        resident.getMedicalCondition(),
+                        resident.getStatus(),
+                        resident.getRemarks(),
+                        admin.getUsername()
+        
+                    ], (err, results) => {
+                        if (err) console.log(err);
+                        else {
+                            res.render('admin/admin-add-residents', {AlertMessage: "Resident Recorded"})
+                        }
+                    })
+                    admin_connection.query("INSERT INTO address (address_id, addressline1, addressline2, barangay, city, country) VALUES (?,?,?,?,?,?)",
+                    [resident.getResidentId(),
+                    resident_address.getAddressLine1(),
+                    resident_address.getAddressLine2(),
+                    resident_address.getBarangay(),
+                    resident_address.getCity(),
+                    resident_address.getCountry()
+                    ], (err, results) => {
+                    if(err) console.log("INSERT ADDRESS ERROR: "+err);
+                    })
     }else{
         res.redirect('/');
     }   
+})
+app.post("/edit-resident", parser.urlencoded({extended: true}), (req,res) => {
+    const {editresident} = req.body;
+    req.session.editid = editresident;
+    res.redirect("/kapitan/masterlist/edit");
 })
 
 module.exports = app;

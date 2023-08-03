@@ -5,46 +5,46 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+}
+
+.sidebar {
+  width: 586px;
+  height: 100vh;
+  background-color: #5C6B86;
+  border-right: black 1px solid;
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw;
+  overflow: hidden;
+}
+  
+  .sidebar img {
+      position: absolute;
+      left: 90px;
+      top: 70px;
+      width: 250px;
+      height: 250px;
   }
   
-  .sidebar {
-    width: 350px;
-    height: 100vh;
-    background-color: #5C6B86;
-    border-right: black 1px solid;
-    border-top-right-radius: 3.5vw;
-    border-bottom-right-radius: 3.5vw;
-    overflow: hidden;
+  .sidebar-name {
+      margin: auto;
+      margin-top: 85vh;
+      font-size: 2em;
+      text-align: center;
+      padding: 4%;
+      background-color: #F9F8F0;
+      border: black;
+      border-style: solid 3px;
+      color: #2F4670;
   }
-    
-    .sidebar img {
-        position: absolute;
-        left: 90px;
-        top: 70px;
-        width: 250px;
-        height: 250px;
-    }
-    
-    .sidebar-name {
-        margin: auto;
-        margin-top: 85vh;
-        font-size: 2em;
-        text-align: center;
-        padding: 4%;
-        background-color: #F9F8F0;
-        border: black;
-        border-style: solid 3px;
-        color: #2F4670;
-    }
-    
-    .login-box-container {
-        flex: 1;
-    }
+  
+  .login-box-container {
+      flex: 1;
+  }
     
     .login-box {
         background-color:#5C6B86;
@@ -107,13 +107,13 @@ body {
   
   .plist {
     margin-top: 2vh;
-    margin-left: -5vw;
+    margin-left: -6vw;
   }
   
   .prospecttable {
     width: 73vw;
     border-collapse: collapse;
-    margin-left: -2.5vw;
+    margin-left: 5vw;
   }
   
   .prospecttable th,
@@ -129,6 +129,23 @@ body {
     text-align: center;
   }
   
+  .prospecttable button {
+    background-color: transparent;
+    border: none;
+    border-radius: 0%;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition-duration: 400ms;
+  }
+  .prospecttable button:hover {
+    background-color: transparent;
+    color: black;
+    transform: translateY(-5px);
+  }
+
   .prospectedit,
   .prospectdelete {
     margin-left: 0vw;
@@ -221,7 +238,7 @@ body {
   }
   
   .sidebar-buttons.logout-button {
-    margin-top: 25vh;
+    margin-top: 35vh;
   }
   
   .content {
@@ -232,3 +249,11 @@ body {
     align-items: center;
     background-color: #F9F8F0;
   }
+  .table-row{
+    cursor: pointer;
+    transition-duration: 400ms;
+  }
+    .table-row:hover {
+      background-color: #7b8aa7;
+      transform: translateY(-3px);
+    }
