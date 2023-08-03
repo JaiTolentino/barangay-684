@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masterlist page</title>
-    <link rel="stylesheet" href="Admin-Masterlist.css">
+    <link rel="stylesheet" href="../../Admin-Masterlist.css">
 </head>
 <body>
     <div class="container">
@@ -14,12 +14,12 @@
             <h2>684</h2>
           </div>  
           <ul class="sidebar-buttons">
-            <li ><a href="admin home.html" >Home</a></li>
-            <li><a href="#"class="admin-sidebar">Masterlists</a></li>
+            <li><a href="/admin/home" class="admin-sidebar">Home</a></li>
+            <li><a href="/admin/masterlist">Masterlists</a></li>
             <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
           </ul>
           <ul class="sidebar-buttons logout-button">
-            <li><a href="admin index.html">Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </div>
     <div class="content">
@@ -37,22 +37,22 @@
                             <th class="prospectth"><button>Status</button></th>
                             <th class="prospectth"><button>Remarks</button></th>
                             <th class="prospectth"><button>Condition</button></th>
-                            <th class="prospectth">Voter</th>
                             <th class="prospectth">PWD</th>
                         </tr>
+                        {{#each data}}
                         <tr>
-                            <td>John Doe</td>
-                            <td>Makati City PH</td>
-                            <td>30 years old</td>
-                            <td>01-01-2001</td>
-                            <td>ungoy</td>
-                            <td>09 12345678</td>
-                            <td>Married</td>
-                            <td>Alive</td>
-                            <td>hepa</td>
-                            <td><input type="checkbox"></td>
-                            <td><input type="checkbox"></td>
+                            <td>{{fname}} {{lname}}</td>
+                            <td>{{address}}</td>
+                            <td>{{age}} years old</td>
+                            <td>{{birthdate}}</td>
+                            <td>{{gender}}</td>
+                            <td>{{contact}}</td>
+                            <td>{{status}}</td>
+                            <td>{{remarks}}</td>
+                            <td>{{medical_condition}}</td>
+                            <td>{{is_pwd}}</td>
                         </tr>
+                        {{/each}}
                     </table>
                 </div>
             </div>
