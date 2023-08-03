@@ -1,7 +1,9 @@
-body{
-    margin: 0;
-    padding: 0;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
   
 .container {
     margin: 0;
@@ -12,13 +14,13 @@ body{
 }
   
 .sidebar {
-    width: 455px;
-    height: 100vh;
-    background-color: #5C6B86;
-    border-right: black 1px solid;
-    border-top-right-radius: 3.5vw;
-    border-bottom-right-radius: 3.5vw ;
-    overflow: hidden;
+  width: 350px;
+  height: 100vh;
+  background-color: #5C6B86;
+  border-right: black 1px solid;
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw;
+  overflow: hidden;
 }
   
 .sidebar img {
@@ -41,24 +43,19 @@ body{
     color: #2F4670;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500&family=Overpass:wght@400;800&family=Roboto&display=swap');
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #F9F8F0;
-  }
   h1, h2{
     margin: 0;
     padding: 0;
   }
-
-
-.Hi-Kap-con{
-  width: 100%;
-  padding: 5%;
-}
-  .Hi-Kap-con h2{
+  .Hi-Kap-con {
+    width: 100%;
+    padding: 5%;
+  }
+  
+  .Hi-Kap-con h2 {
     text-align: center;
+    margin-right: 10%;
+    margin-top: 7%;
   }
 .sidebar h1 {
   font-size: 40px;
