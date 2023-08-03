@@ -99,45 +99,70 @@ body{
 
 /*Admin Option*/ /*Masterlists*/
 
-
-.admhome .bodycon {
-  margin-left: 25vw;
-  margin-bottom: 12vh;
-}
-
-.admhome .bodycon .capabilities {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 35vh;
-  border-radius: 60px;
-}
-
-.admhome .bodycon .capabilities .container {
+.content .container-1, .container-2{
   cursor: pointer;
-  margin: 2.5vw;
-  height: 30vh;
-  width: 25vw;
-  border: 2px solid white;
-  border-radius: 80px;
-  background-color: #2F4670;
-  margin-bottom: 150vh;
-  overflow: hidden;
-}
-
-.admhome .bodycon .capabilities .container .label {
+  height: 60%;
+  width: 40%;
+  border-radius: 25px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 1vh;
-  margin-left: -0.1vw;
-  height: 12vh;
-  width: 15vw;
-  font-size: 2.5em;
-  border-radius: 10px;
-  color: #2F4670;
-  background-color: #F9F8F0;
+  transition-duration: 300ms;
 }
+  .content .container-1 .icon-upper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width: 70%;
+    object-fit: cover;
+    background-color: #5C6B86;
+    border-radius: 15px;
+
+  }
+  .content .container-1 .icon-lower{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 20%;
+    background-color: #2F4670;
+    border-radius: 15px;
+
+  }
+    .content .container-1 .icon-upper img{
+      height: 80%;
+      width: 80%;
+      object-fit: contain;
+    }
+    .content .container-2 .icon-upper{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60%;
+      width: 70%;
+      object-fit: cover;
+      background-color: #5C6B86;
+      border-radius: 15px;
+    }
+    .content .container-2 .icon-lower{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
+      height: 20%;
+      background-color: #2F4670;
+      border-radius: 15px;
+    }
+    .content .container-2 .icon-upper img{
+      height: 80%;
+      width: 80%;
+      object-fit: contain;
+    }
+    .content .container-1:hover, .container-2:hover{
+      transform: translateY(-5px);
+    }
 
     
     /* SideBar*/
