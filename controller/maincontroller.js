@@ -25,25 +25,27 @@ function calculateAge(birthDateString) {
 function convertToInternationalFormat(localNumber) {
     const countryCode = "+63";
     const trimmedNumber = localNumber.trim();
-    if (trimmedNumber.startsWith("09") && trimmedNumber.length === 11) {
-      return countryCode + trimmedNumber.slice(2);
+    if (trimmedNumber.startsWith("09") || trimmedNumber.length === 11) {
+      return countryCode + trimmedNumber.slice(1);
     } else {
       return localNumber;
     }
   }
-  function convertDateToWorded(date) {
-    date = '2003-07-13';
-    const months = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
 
-    const day = date.getDate();
-    const month = date.getMonth();
-    const year = date.getFullYear();
-
-    const wordedOutput = months[month] + " " + day + ", " + year;
-    console.log(wordedOutput);
-    return wordedOutput;
+function checkboxValue(checkbox){
+  if (checkbox === "yes"){
+    return "yes";
+  }else{
+    return "no";
+  }
 }
-module.exports = {encryptPassword, comparePassword, createAdminId, calculateAge, convertToInternationalFormat, convertDateToWorded};
+function birthdateToWordedFormat(birthdate) {
+  const [year, month, day] = birthdate.split('-');
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const monthWorded = months[Number(month) - 1];
+  return monthWorded + " " + parseInt(day, 10)+", "+ year;
+}
+module.exports = {checkboxValue, encryptPassword, comparePassword, createAdminId, calculateAge, convertToInternationalFormat, birthdateToWordedFormat};

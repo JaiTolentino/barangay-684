@@ -41,19 +41,21 @@
                             <th class="prospectth">Voter</th>
                             <th class="prospectth">PWD</th>
                         </tr>
+                        {{#each data}}
                         <tr>
-                            <td>John Doe</td>
-                            <td>Makati City PH</td>
-                            <td>30 years old</td>
-                            <td>01-01-2001</td>
-                            <td>ungoy</td>
-                            <td>09 12345678</td>
-                            <td>Married</td>
-                            <td>Alive</td>
-                            <td>hepa</td>
-                            <td><input type="checkbox"></td>
-                            <td><input type="checkbox"></td>
+                            <td>{{fname}} {{lname}}</td>
+                            <td>{{address}}</td>
+                            <td>{{age}} years old</td>
+                            <td>{{birthdate}}</td>
+                            <td>{{gender}}</td>
+                            <td>{{contact}}</td>
+                            <td>{{status}}</td>
+                            <td>{{remarks}}</td>
+                            <td>{{medical_condition}}</td>
+                            <td>{{is_voter}}</td>
+                            <td>{{is_pwd}}</td>
                         </tr>
+                        {{/each}}
                     </table>
                 </div>
             </div>

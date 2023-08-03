@@ -9,7 +9,7 @@ const ip = require('ip')
 app.use(session({
     secret: secret,
     resave: false,
-    cookie: {maxAge: 10800000},
+    cookie: {maxAge: 28800000},
     saveUninitialized: true
 }));
 app.set('view engine', 'hbs');
