@@ -6,15 +6,15 @@ body {
 }
   
 .container {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
 }
-  
+
 .sidebar {
-  width: 350px;
+  width: 449px;
   height: 100vh;
   background-color: #5C6B86;
   border-right: black 1px solid;
@@ -23,25 +23,29 @@ body {
   overflow: hidden;
 }
   
-.sidebar img {
-    position: absolute;
-    left: 90px;
-    top: 70px;
-    width: 250px;
-    height: 250px;
-}
+  .sidebar img {
+      position: absolute;
+      left: 90px;
+      top: 70px;
+      width: 250px;
+      height: 250px;
+  }
   
-.sidebar-name {
-    margin: auto;
-    margin-top: 85vh;
-    font-size: 2em;
-    text-align: center;
-    padding: 4%;
-    background-color: #F9F8F0;
-    border: black;
-    border-style: solid 3px;
-    color: #2F4670;
-    }
+  .sidebar-name {
+      margin: auto;
+      margin-top: 85vh;
+      font-size: 2em;
+      text-align: center;
+      padding: 4%;
+      background-color: #F9F8F0;
+      border: black;
+      border-style: solid 3px;
+      color: #2F4670;
+  }
+  
+  .login-box-container {
+      flex: 1;
+  }
 
   h1, h2{
     margin: 0;
@@ -102,7 +106,7 @@ body {
 }
 
 .sidebar-buttons.logout-button {
-  margin-top: 25vh;
+  margin-top: 35vh;
 }
 
 .bg-image {
@@ -122,10 +126,11 @@ height: 550px;
 }
 
 .officials {
-position: absolute;
-top: 3%;
-right: 34vw;
-text-align: right;
+  position: absolute;
+  top: -2%;
+  right: 29vw;
+  text-align: right;
+  font-size: 2.5em;
 }
 
 .kapitana {

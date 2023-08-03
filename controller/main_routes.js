@@ -53,7 +53,19 @@ routes.get("/kapitan/masterlist/list", (req, res) => {
 })
 routes.get("/kapitan/masterlist/add", (req,res) => {
     req.session.kapitan ? res.render('kapitan/kapitan-add-residents') : res.redirect('/');
-    
+})
+routes.get("/kapitan/masterlist/edit", (req,res) => {
+    if(req.session.kapitan){
+        const resident_id = req.session.editid;
+        kapitan_connection.query("SELECT * FROM masterlist WHERE resident_id = ?", [resident_id], (err, result) => {
+            if(err) console.log(err);
+            else {
+                res.render('kapitan/kapitan-edit-residents', {data: result});
+            }
+        })
+    }else {
+        res.redirect('/');
+    }
 })
 
 // Admin

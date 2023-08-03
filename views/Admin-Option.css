@@ -6,43 +6,43 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
   
-  .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-weight: bold;
-    }
-    
-    .sidebar {
-      width: 350px;
-      height: 100vh;
-      background-color: #5C6B86;
-      border-right: black 1px solid;
-      border-top-right-radius: 3.5vw;
-      border-bottom-right-radius: 3.5vw;
-      overflow: hidden;
-    }
-      
-      .sidebar img {
-          position: absolute;
-          left: 90px;
-          top: 70px;
-          width: 250px;
-          height: 250px;
-      }
-      
-      .sidebar-name {
-          margin: auto;
-          margin-top: 85vh;
-          font-size: 2em;
-          text-align: center;
-          padding: 4%;
-          background-color: #F9F8F0;
-          border: black;
-          border-style: solid 3px;
-          color: #2F4670;
-      }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+}
+
+.sidebar {
+  width: 597px;
+  height: 100vh;
+  background-color: #5C6B86;
+  border-right: black 1px solid;
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw;
+  overflow: hidden;
+}
+  
+  .sidebar img {
+      position: absolute;
+      left: 90px;
+      top: 70px;
+      width: 250px;
+      height: 250px;
+  }
+  
+  .sidebar-name {
+      margin: auto;
+      margin-top: 85vh;
+      font-size: 2em;
+      text-align: center;
+      padding: 4%;
+      background-color: #F9F8F0;
+      border: black;
+      border-style: solid 3px;
+      color: #2F4670;
+  }
       
       .login-box-container {
           flex: 1;
@@ -127,6 +127,7 @@ body {
     width: 70%;
     height: 20%;
     background-color: #2F4670;
+    color: #ffffff; 
     border-radius: 15px;
 
   }
@@ -151,6 +152,7 @@ body {
       justify-content: center;
       width: 70%;
       height: 20%;
+      color:#fff;
       background-color: #2F4670;
       border-radius: 15px;
     }
@@ -226,7 +228,7 @@ body {
     }
     
     .sidebar-buttons.logout-button {
-      margin-top: 35vh;
+      margin-top: 40vh;
     }
     
     .content {

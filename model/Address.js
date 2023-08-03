@@ -1,9 +1,17 @@
 class Address{
-    constructor(address_line_1, address_line_2, barangay, country){
+    constructor(resident_id, address_line_1, address_line_2, barangay, city, country){
+        this.resident_id = resident_id;
         this.address_line_1 = address_line_1;
         this.address_line_2 = address_line_2;
         this.barangay = barangay;
+        this.city = city
         this.country = country;
+    }
+    getResidentId(){
+        return this.resident_id;
+    }
+    setResidentId(resident_id){
+        this.resident_id = resident_id;
     }
     getAddressLine1(){
         return this.address_line_1;
@@ -22,6 +30,12 @@ class Address{
     }
     setBarangay(barangay){
         this.barangay = barangay;
+    }
+    getCity(){
+        return this.city
+    }
+    setCity(city){
+        this.city = city;
     }
     getCountry(){
         return this.country;

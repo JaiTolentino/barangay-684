@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Residents</title>
-  <link rel="stylesheet" href="../../Admin-Add-Residents.css">
+  <title>Edit Residents</title>
+  <link rel="stylesheet" href="../../edit Residents.css">
 </head>
 <body>
   <div class="container">
     <div class="sidebar">
       <div class="Hi-Kap-con">
-        <h1>Hi Admin!</h1>
+        <h1>Hi Kap!</h1>
         <h2>684</h2>
       </div>  
       <ul class="sidebar-buttons">
-            <li><a href="/admin/home">Home</a></li>
-            <li><a href="/admin/masterlist"class="admin-sidebar">Master Lists</a></li>
-            <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
-          </ul>
+        <li ><a href="/kapitan/home" >Home</a></li>
+        <li ><a href="/kapitan/admin" >Admin</a></li>
+        <li><a href="/kapitan/masterlist" class="admin-sidebar">Master Lists</a></li>
+        <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
+      </ul>
       <ul class="sidebar-buttons logout-button">
         <li><a href="/logout">Logout</a></li>
       </ul>
@@ -29,23 +30,23 @@
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName" required>
+                    <input type="text" id="firstName" name="firstName" placeholder="{{fname}}" required>
                 </div>
                 <div class="fl-content">
                     <label for="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="lastName" required>
+                    <input type="text" id="lastName" name="lastName" placeholder="{{lname}}" required>
                 </div>
             </div>
 
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="addressline1">Address line 1</label>
-                    <input type="text" name="addressline1" id="addressline1" required>
+                    <input type="text" name="addressline1" id="addressline1" disabled>
                 </div>
                 <!-- optional from here -->
                 <div class="fl-content">
                     <label for="addressline2-container">Address line 2 (Optional)</label>
-                    <input type="text" name="addressline2" id="addressline2">
+                    <input type="text" name="addressline2" id="addressline2" disabled>
                 </div>
             </div>    
             
@@ -53,18 +54,18 @@
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="addressbarangay">Barangay</label>
-                    <input type="text" name="addressbarangay" id="addressbarangay" required>
+                    <input type="text" name="addressbarangay" id="addressbarangay" disabled>
                 </div>
                 <div class="fl-content">
                     <label for="addresscity">City</label>
-                    <input type="text" name="addresscity" id="addresscity" required>
+                    <input type="text" name="addresscity" id="addresscity" disabled>
                 </div>
             </div>
 
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="addresscountry">Country</label>
-                    <input type="text" name="addresscountry" id="addresscountry" required>
+                    <input type="text" name="addresscountry" id="addresscountry" disabled>
                 </div>
                 <div class="fl-content">
                     <label for="birthday">Birthday:</label>

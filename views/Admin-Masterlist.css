@@ -5,47 +5,48 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+}
+
+.sidebar {
+  width: 596px;
+  height: 100vh;
+  background-color: #5C6B86;
+  border-right: black 1px solid;
+  border-top-right-radius: 3.5vw;
+  border-bottom-right-radius: 3.5vw;
+  overflow: hidden;
+}
+  
+  .sidebar img {
+      position: absolute;
+      left: 90px;
+      top: 70px;
+      width: 250px;
+      height: 250px;
   }
   
-  .sidebar {
-    width: 350px;
-    height: 100vh;
-    background-color: #5C6B86;
-    border-right: black 1px solid;
-    border-top-right-radius: 3.5vw;
-    border-bottom-right-radius: 3.5vw;
-    overflow: hidden;
+  .sidebar-name {
+      margin: auto;
+      margin-top: 85vh;
+      font-size: 2em;
+      text-align: center;
+      padding: 4%;
+      background-color: #F9F8F0;
+      border: black;
+      border-style: solid 3px;
+      color: #2F4670;
   }
-    
-    .sidebar img {
-        position: absolute;
-        left: 90px;
-        top: 70px;
-        width: 250px;
-        height: 250px;
-    }
-    
-    .sidebar-name {
-        margin: auto;
-        margin-top: 85vh;
-        font-size: 2em;
-        text-align: center;
-        padding: 4%;
-        background-color: #F9F8F0;
-        border: black;
-        border-style: solid 3px;
-        color: #2F4670;
-    }
-    
-    .login-box-container {
-        flex: 1;
-    }
+  
+  .login-box-container {
+      flex: 1;
+  }
     
     .login-box {
         background-color:#5C6B86;
@@ -114,7 +115,7 @@ body {
   .prospecttable {
     width: 73vw;
     border-collapse: collapse;
-    margin-left: -2.5vw;
+    margin-left: 4vw;
   }
   
   .prospecttable th,
@@ -210,7 +211,7 @@ body {
   }
   
   .sidebar-buttons.logout-button {
-    margin-top: 35vh;
+    margin-top: 40vh;
   }
   
   .content {
