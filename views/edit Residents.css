@@ -1,255 +1,201 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
 body {
   margin: 0;
   padding: 0;
   font-family: 'Josefin Sans', sans-serif;
 }
 .container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+  .container .sidebar{
+    display: flex;
+    height: 100%;
+    width: 20%;
+    flex-direction: column;
+    background-color: #5C6B86;
+    border-radius: 0px 33px 33px 0px;
+  }
+    .container .sidebar .upper-sidebar-container{
+      width: 100%;
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      gap: 0%;
+      justify-content: center;
+    }
+      .container .sidebar .upper-sidebar-container .hi-kap {
+        margin-left: 5%;
+        font-size: 1.2rem;
+        height: 100%;
+        width: 100%;
+        color: #F9F8F0;
+      }
+      .container .sidebar .upper-sidebar-container .brgy-number{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7rem;
+        height: 40%;
+        width: 100%;
+        color: #F9F8F0;
+      }
+  .container .sidebar .sidebar-buttons-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+    .container .sidebar .sidebar-buttons-container .sidebar-upper-buttons{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+      height: 35%;
+      width: 100%;
+    }
+      .container .sidebar .sidebar-buttons-container .sidebar-upper-buttons .sidebar-buttons{
+        width: 100%;
+        height: 20%;
+        justify-content: center;
+        text-align: center;
+        color: #2F4670;
+        background-color: #F9F8F0;
+        border: black 1px solid;
+        cursor: pointer;
+      }
+      .container .sidebar-buttons-container .sidebar-upper-buttons .sidebar-buttons:hover{
+        color: #F9F8F0;
+        background-color: #5C6B86;
+      }
+    .container .sidebar .sidebar-buttons-container .sidebar-lower-buttons {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+      .container .sidebar-buttons-container .sidebar-lower-buttons .sidebar-buttons{
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        color: #2F4670;
+        background-color: #F9F8F0;
+        border: black 1px solid;
+        cursor: pointer;
+      }
+        .container .sidebar-buttons-container .sidebar-lower-buttons .sidebar-buttons:hover{
+          color: #F9F8F0;
+          background-color: #5C6B86;
+        }
+#selected-page{
+  color:#F9F8F0;
+  background-color: #2F4670;
+}
+.sidebar-buttons:hover{
+  color: #F9F8F0;
+  background-color: #5C6B86;
+}
+.content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #F9F8F0;
+  flex-direction: column;
+}
+
+.registration-forms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90%;
+}
+
+.FL-item{
+  display: flex;
+  width: 70%;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.registration-forms{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.fl-content {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  height: 60%;
+}
+
+.fl-content-checkbox input[type="checkbox"] {
+  width: 30px; 
+  height: 30px; 
+}
+.fl-content-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 40%;
+  gap: 30%;
+  height: 50%;
+}
+.fl-content-checkbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+}
+
+.fl-content input, select{
+  width: 100%;
+  height: 100%;
+  background-color: #5C6B86;
+  border-radius: 33px;
+  text-indent: 3%;
+  color: rgb(255, 255, 255);
+}
+.fl-content input::placeholder{
+  color: #F9F8F0;
+}
+.residents-button{
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  font-weight: bold;
+}
+.residents-button input[type="submit"]{
+  width: 20%;
+  height: 50%;
+  border-radius: 33px;
+  background-color: #2F4670;
+  color:rgb(255, 255, 255);
+  font-size: 1rem;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.sidebar {
-  width: 586px;
-  height: 100vh;
-  background-color: #5C6B86;
-  border-right: black 1px solid;
-  border-top-right-radius: 3.5vw;
-  border-bottom-right-radius: 3.5vw;
-  overflow: hidden;
+p.alert-message {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: center;
 }
-  
-  .sidebar img {
-      position: absolute;
-      left: 90px;
-      top: 70px;
-      width: 250px;
-      height: 250px;
-  }
-  
-  .sidebar-name {
-      margin: auto;
-      margin-top: 85vh;
-      font-size: 2em;
-      text-align: center;
-      padding: 4%;
-      background-color: #F9F8F0;
-      border: black;
-      border-style: solid 3px;
-      color: #2F4670;
-  }
-  
-  .login-box-container {
-      flex: 1;
-  }
-  
-  .login-box {
-    background-color:#5C6B86;
-    padding: 100px 35px;
-    border-radius: 33px;
-    color: #fff;
-    text-align: center;
-    max-width: 400px;
-    margin: 50px auto;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .usernamepass {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .usernamepass label {
-    width: 100px;
-    margin-right: 10px;
-    margin-top: 20px;
-    font-size: 1em;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    border-radius: 15px;
-  }
-  
-  button {
-    background-color: #2F4670;
-    color: #fff;
-    border: 2px solid white;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  button:hover {
-    background-color: #7b8aa7;
-  }
-    
-    h1, h2{
-      margin: 0;
-      padding: 0;
-    }
-  
-  .container {
-    display: flex;
-  }
-  
-  .Hi-Kap-con {
-    width: 100%;
-    padding: 5%;
-  }
-  
-  .Hi-Kap-con h2 {
-    text-align: center;
-    margin-right: 10%;
-    margin-top: 7%;
-  }
-  .sidebar h1 {
-    font-size: 40px;
-    font-weight: bold;
-    color:#F9F8F0
-  }
-  
-  .sidebar h2 {
-    font-size: 60px;
-    font-weight: bold;
-    color:#F9F8F0
-  }
-  
-  .sidebar-buttons {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .sidebar-buttons li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar-buttons a {
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    color: #2F4670;
-    text-decoration: none;
-    padding: 25px;
-    border-radius: 0px;
-    background-color: #F9F8F0;
-  }
-  
-  .sidebar-buttons .admin-sidebar{
-    background-color: #2F4670;
-    color:bisque;
-  }
-  
-  .sidebar-buttons a:hover {
-    background-color: #7b8aa7;
-    color: bisque ;
-  
-  }
-  
-  .sidebar-buttons.logout-button {
-    margin-top: 35vh;
-  }
-
-  .content {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: #F9F8F0;
-  }
-
-  .registration-forms-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 90%;
-  }
-  
-  .FL-item{
-    display: flex;
-    width: 70%;
-    height: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-  .registration-forms{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
-  .fl-content {
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-direction: column;
-    width: 40%;
-    height: 60%;
-  }
-
-  .fl-content-checkbox input[type="checkbox"] {
-    width: 30px; 
-    height: 30px; 
-  }
-  .fl-content-checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    width: 40%;
-    gap: 30%;
-    height: 50%;
-  }
-  .fl-content-checkbox-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5%;
-  }
-  
-  .fl-content input, select{
-    width: 100%;
-    height: 100%;
-    background-color: #5C6B86;
-    border-radius: 33px;
-    text-indent: 3%;
-    color: rgb(255, 255, 255);
-  }
-  .residents-button{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .residents-button input[type="submit"]{
-    width: 20%;
-    height: 50%;
-    border-radius: 33px;
-    background-color: #2F4670;
-    color:rgb(255, 255, 255);
-    font-size: 1rem;
-    font-family: 'Josefin Sans', sans-serif;
-  }
-
-  p.alert-message {
-    color: rgb(0, 0, 0);
-    padding: 10px;
-    text-align: center;
-  }

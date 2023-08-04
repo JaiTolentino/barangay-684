@@ -1,12 +1,14 @@
 const Address = require('./Address');
 const mainController = require('../controller/maincontroller');
 class Resident {
-    constructor(resident_id, fname, lname, contact_num, birthdate, gender , is_voter, is_pwd, medical_condition, status, remarks, date_created, created_by){
+    constructor(resident_id, fname, mi, lname, suffix, contact_num, birthdate, gender , is_voter, is_pwd, medical_condition, status, remarks, date_created, created_by){
         this.resident_id = resident_id;
         this.fname = fname;
+        this.mi = mi;
         this.lname = lname;
+        this.suffix = suffix
         this.contact_num = mainController.convertToInternationalFormat(contact_num);
-        this.birthdate = mainController.birthdateToWordedFormat(birthdate);
+        this.birthdate = birthdate;
         this.gender = gender;
         this.age = mainController.calculateAge(birthdate);
         this.is_voter = mainController.checkboxValue(is_voter);
@@ -29,11 +31,23 @@ class Resident {
     setFname(fname) {
         this.fname = fname;
     }
+    getMi(){
+        return this.mi;
+    }
+    setMi(mi){
+        this.mi = mi;
+    }
     getLname(){
         return this.lname;
     }
     setLname(lname) {
         this.lname = lname;
+    }
+    getSuffix(){
+        return this.suffix;
+    }
+    setSuffix(suffix){
+        this.suffix = suffix;
     }
     getContactNum(){
         return this.contact_num;
@@ -98,6 +112,6 @@ class Resident {
  }
 
  function getFullName(){
-    return this.fname + " " + this.lname; 
+    return this.fname + " " + this.mi + " " + this.lname + " " + this.suffix; 
  }
  module.exports = Resident;

@@ -61,7 +61,7 @@ app.post("/add-admin", parser.urlencoded({extended: true}), (req, res) => {
                     if (password === confirmPassword){
                         const admin_id = mainController.createAdminId(username);
                         const admin_encrypted_password = mainController.encryptPassword(password);
-                        const admin_created = new Admin(admin_id, username, position, admin_encrypted_password);
+                        const admin_created = new Admin(admin_id, username, comp, admin_encrypted_password);
                         kapitan_connection.query("INSERT INTO users (user_id, position, username, encrypted_password) VALUES (?,?,?,?)",
                         [admin_created.getAdminId(),
                             admin_created.getPosition(),
@@ -80,17 +80,87 @@ app.post("/add-admin", parser.urlencoded({extended: true}), (req, res) => {
         })
     }
 })
+app.post("/edit-resident-info", parser.urlencoded({extended: true}), (req, res) => {
+    if (req.session.kapitan){
+        const admin = new Admin(req.session.kapitan.admin_id, req.session.kapitan.username,
+            req.session.kapitan.position, req.session.kapitan.encrypted_password);
+            const {firstName,
+                MI,
+                lastName,
+                suffix,
+                addressline1,
+                addressline2, 
+                addresscity,
+                birthday,
+                gender,
+                contact,
+                status,
+                remarks,
+                medicalCondition,
+                voter,
+                pwd} = req.body;
+                console.log(req.body);
+                console.log("Created resident OOP");
+                const resident = new Resident(
+                    req.session.editid,
+                    firstName,
+                    MI,
+                    lastName,
+                    suffix,
+                    contact,
+                    birthday,
+                    gender,
+                    voter,
+                    pwd,
+                    medicalCondition,
+                    status,
+                    remarks,
+                    new Date(),
+                    admin.getUsername()
+                    );
+                    console.log(resident);
+                    console.log(resident.getAge());
+                const resident_address = new Address(
+                    resident.getResidentId(),
+                    addressline1,
+                    addressline2,
+                    addresscity,
+                    );
+                    console.log("started update masterlist query");
+                    kapitan_connection.query("UPDATE masterlist SET fname = '"+resident.getFname()+"', mi = '"+resident.getMi()+"', lname = '"+resident.getLname()+"', suffix = '"+resident.getSuffix()+"', contact = '"+resident.getContactNum()+"', birthdate = '"+resident.getBirthdate()+"', gender = '"+resident.getGender()+"', age = ?'"+resident.getAge+"', is_voter = '"+resident.getIsVoter()+"', is_pwd = '"+resident.getIsPwd()+"', medical_condition = '"+resident.getMedicalCondition()+"', status = '"+resident.getStatus()+"', remarks = '"+resident.getRemarks()+"', created_by = '"+admin.getUsername+"' WHERE resident_id = '"+resident.getResidentId()+"'",(err, results) => {
+                        if (err) console.log(err);
+                    })
+                    console.log("end update masterlist query");
+                    console.log("started update address query");
+                    kapitan_connection.query("UPDATE address SET addressline1 = ?, addressline2 = ?, city = ? WHERE address_id = ?",
+                    [resident_address.getAddressLine1(),
+                    resident_address.getAddressLine2(),
+                    resident_address.getCity(),
+                    resident.getResidentId()
+
+                    ], (err, results) => {
+                    if(err) console.log("INSERT ADDRESS ERROR: "+err);
+                    else{
+                        res.render('kapitan/kapitan-add-residents', {AlertMessage: "Resident Edited"})
+                    }
+                    })
+                    console.log("end update address query");
+
+    }else {
+        res.redirect("/");
+    }
+})
 app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
     if (req.session.kapitan){
         const admin = new Admin(req.session.kapitan.admin_id, req.session.kapitan.username,
             req.session.kapitan.position, req.session.kapitan.encrypted_password);
             const {firstName,
+                MI,
                 lastName,
+                suffix,
                 addressline1,
                 addressline2, 
-                addressbarangay,
                 addresscity,
-                addresscountry,
                 birthday,
                 gender,
                 contact,
@@ -103,11 +173,12 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
                 const two = mainController.createAdminId(lastName);
                 const three = mainController.createAdminId(addressline1);
                 const user_id = one+two+three;
-                console.log("Create resident");
                 const resident = new Resident(
                     user_id,
                     firstName,
+                    MI,
                     lastName,
+                    suffix,
                     contact,
                     birthday,
                     gender,
@@ -123,14 +194,14 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
                     resident.getResidentId(),
                     addressline1,
                     addressline2,
-                    addressbarangay,
                     addresscity,
-                    addresscountry
                     );
-                    kapitan_connection.query("INSERT INTO masterlist (resident_id, fname, lname, contact, birthdate, gender, age, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[
+                    kapitan_connection.query("INSERT INTO masterlist (resident_id, fname, mi, lname, suffix, contact, birthdate, gender, age, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[
                         resident.getResidentId(),
                         resident.getFname(),
+                        resident.getMi(),
                         resident.getLname(),
+                        resident.getSuffix(),
                         resident.getContactNum(),
                         resident.getBirthdate(),
                         resident.getGender(),
@@ -144,17 +215,12 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
         
                     ], (err, results) => {
                         if (err) console.log(err);
-                        else {
-                            res.render('kapitan/kapitan-add-residents', {AlertMessage: "Resident Recorded"})
-                        }
                     })
-                    kapitan_connection.query("INSERT INTO address (address_id, addressline1, addressline2, barangay, city, country) VALUES (?,?,?,?,?,?)",
+                    kapitan_connection.query("INSERT INTO address (address_id, addressline1, addressline2, city) VALUES (?,?,?,?)",
                     [resident.getResidentId(),
                     resident_address.getAddressLine1(),
                     resident_address.getAddressLine2(),
-                    resident_address.getBarangay(),
                     resident_address.getCity(),
-                    resident_address.getCountry()
                     ], (err, results) => {
                     if(err) console.log("INSERT ADDRESS ERROR: "+err);
                     else{
@@ -165,12 +231,12 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
         const admin = new Admin(req.session.admin.admin_id, req.session.admin.username,
             req.session.admin.position, req.session.admin.encrypted_password);
             const {firstName,
+                MI,
                 lastName,
+                suffix,
                 addressline1,
                 addressline2, 
-                addressbarangay,
                 addresscity,
-                addresscountry,
                 birthday,
                 gender,
                 contact,
@@ -187,7 +253,9 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
                 const resident = new Resident(
                     user_id,
                     firstName,
+                    MI,
                     lastName,
+                    suffix,
                     contact,
                     birthday,
                     gender,
@@ -203,14 +271,14 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
                     resident.getResidentId(),
                     addressline1,
                     addressline2,
-                    addressbarangay,
                     addresscity,
-                    addresscountry
                     );
-                    admin_connection.query("INSERT INTO masterlist (resident_id, fname, lname, contact, birthdate, gender, age, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[
+                    admin_connection.query("INSERT INTO masterlist (resident_id, fname, mi, lname, suffix, contact, birthdate, gender, age, is_voter, is_pwd, medical_condition, status, remarks, created_by) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[
                         resident.getResidentId(),
                         resident.getFname(),
+                        resident.getMi(),
                         resident.getLname(),
+                        resident.getSuffix(),
                         resident.getContactNum(),
                         resident.getBirthdate(),
                         resident.getGender(),
@@ -224,19 +292,17 @@ app.post("/add-resident", parser.urlencoded({extended: true}), (req, res) => {
         
                     ], (err, results) => {
                         if (err) console.log(err);
-                        else {
-                            res.render('admin/admin-add-residents', {AlertMessage: "Resident Recorded"})
-                        }
                     })
-                    admin_connection.query("INSERT INTO address (address_id, addressline1, addressline2, barangay, city, country) VALUES (?,?,?,?,?,?)",
+                    admin_connection.query("INSERT INTO address (address_id, addressline1, addressline2, city) VALUES (?,?,?,?)",
                     [resident.getResidentId(),
                     resident_address.getAddressLine1(),
                     resident_address.getAddressLine2(),
-                    resident_address.getBarangay(),
                     resident_address.getCity(),
-                    resident_address.getCountry()
                     ], (err, results) => {
                     if(err) console.log("INSERT ADDRESS ERROR: "+err);
+                    else{
+                        res.render('admin/admin-add-residents', {AlertMessage: "Resident Recorded"})
+                    }
                     })
     }else{
         res.redirect('/');

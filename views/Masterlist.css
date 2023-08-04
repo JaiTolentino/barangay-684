@@ -5,115 +5,124 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 .container {
+  height: 100vh;
+  width: 100vw;
   display: flex;
+  flex-direction: row;
+}
+  .container .sidebar{
+    display: flex;
+    height: 100%;
+    width: 20%;
+    flex-direction: column;
+    background-color: #5C6B86;
+    border-radius: 0px 33px 33px 0px;
+  }
+    .container .sidebar .upper-sidebar-container{
+      width: 100%;
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      gap: 0%;
+      justify-content: center;
+    }
+      .container .sidebar .upper-sidebar-container .hi-kap {
+        margin-left: 5%;
+        font-size: 1.2rem;
+        height: 100%;
+        width: 100%;
+        color: #F9F8F0;
+      }
+      .container .sidebar .upper-sidebar-container .brgy-number{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7rem;
+        height: 40%;
+        width: 100%;
+        color: #F9F8F0;
+      }
+  .container .sidebar .sidebar-buttons-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+    .container .sidebar .sidebar-buttons-container .sidebar-upper-buttons{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+      height: 35%;
+      width: 100%;
+    }
+      .container .sidebar .sidebar-buttons-container .sidebar-upper-buttons .sidebar-buttons{
+        width: 100%;
+        height: 20%;
+        justify-content: center;
+        text-align: center;
+        color: #2F4670;
+        background-color: #F9F8F0;
+        border: black 1px solid;
+        cursor: pointer;
+      }
+      .container .sidebar-buttons-container .sidebar-upper-buttons .sidebar-buttons:hover{
+        color: #F9F8F0;
+        background-color: #5C6B86;
+      }
+    .container .sidebar .sidebar-buttons-container .sidebar-lower-buttons {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+      .container .sidebar-buttons-container .sidebar-lower-buttons .sidebar-buttons{
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        color: #2F4670;
+        background-color: #F9F8F0;
+        border: black 1px solid;
+        cursor: pointer;
+      }
+        .container .sidebar-buttons-container .sidebar-lower-buttons .sidebar-buttons:hover{
+          color: #F9F8F0;
+          background-color: #5C6B86;
+        }
+#selected-page{
+  color:#F9F8F0;
+  background-color: #2F4670;
+}
+.sidebar-buttons:hover{
+  color: #F9F8F0;
+  background-color: #5C6B86;
+}
+.container .content {
+  display: flex;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  font-weight: bold;
+  background-color: #F9F8F0;
 }
-
-.sidebar {
-  width: 586px;
-  height: 100vh;
-  background-color: #5C6B86;
-  border-right: black 1px solid;
-  border-top-right-radius: 3.5vw;
-  border-bottom-right-radius: 3.5vw;
-  overflow: hidden;
-}
-  
-  .sidebar img {
-      position: absolute;
-      left: 90px;
-      top: 70px;
-      width: 250px;
-      height: 250px;
-  }
-  
-  .sidebar-name {
-      margin: auto;
-      margin-top: 85vh;
-      font-size: 2em;
-      text-align: center;
-      padding: 4%;
-      background-color: #F9F8F0;
-      border: black;
-      border-style: solid 3px;
-      color: #2F4670;
-  }
-  
-  .login-box-container {
-      flex: 1;
-  }
-    
-    .login-box {
-        background-color:#5C6B86;
-        padding: 100px 35px;
-        border-radius: 33px;
-        color: #fff;
-        text-align: center;
-        max-width: 400px;
-        margin: 50px auto;
-    }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .usernamepass {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-    
-    .usernamepass label {
-        width: 100px;
-        margin-right: 10px;
-        margin-top: 20px;
-        font-size: 1em;
-    }
-    
-    input[type="text"],
-    input[type="password"] {
-        border-radius: 15px;
-    }
-    
-    button {
-        background-color: #2F4670;
-        color: #fff;
-        border: 2px solid white;
-        border-radius: 15px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-    
-    button:hover {
-        background-color: #7b8aa7;
-    }
-
-  .pcontainer1 {
+  .container .content .pcontainer1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 50vh;
-    margin: 0 auto;
-    padding: 1vh;
-    position: absolute;
-    top: 5vh;
-    left: calc(454px + 20px);
-    right: 0;
+    height: 90%;
+    width: 95%;
   }
   
-  .plist {
-    margin-top: 2vh;
-    margin-left: -6vw;
+  .container .content .pcontainer1 .plist {
+    height: 100%;
+    overflow-y: auto;
   }
   
   .prospecttable {
-    width: 73vw;
+    width: 100%;
     border-collapse: collapse;
-    margin-left: 5vw;
   }
   
   .prospecttable th,
@@ -121,6 +130,18 @@ body {
     padding: 1vw;
     text-align: center;
     border-bottom: 1px solid rgba(204, 204, 204, 1);
+  }
+  .prospecttable td input[type="submit"]{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #2F4670;
+    color: #F9F8F0;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
   }
   
   .prospecttable th {
@@ -145,113 +166,8 @@ body {
     color: black;
     transform: translateY(-5px);
   }
-
-  .prospectedit,
-  .prospectdelete {
-    margin-left: 0vw;
-    margin-right: 0vw;
-    width: 6vw;
-    font-size: 1em;
-    color: black;
-    border: none;
-    border-radius: 50px;
-    background-color: #5C6B86;
-  }
-  
-  .prospectdelete {
-    margin-left: 1vw;
-    background-color: rgb(184, 58, 58);
-  }
-  
-  .prospectedit:hover {
-    background-color: #7b8aa7;
-    outline: none;
-    outline-offset: -4px;
-  }
-  
-  .prospectdelete:hover {
-    background-color: rgba(184, 58, 58, 0.80);
-    outline: none;
-    outline-offset: -4px;
-  }
-
-    h1, h2{
-      margin: 0;
-      padding: 0;
-    }
-  
-  .container {
-    display: flex;
-  }
-  .Hi-Kap-con {
-    width: 100%;
-    padding: 5%;
-  }
-  
-  .Hi-Kap-con h2 {
-    text-align: center;
-    margin-right: 10%;
-    margin-top: 7%;
-  }
-  .sidebar h1 {
-    font-size: 40px;
-    font-weight: bold;
-    color:#F9F8F0
-  }
-  
-  .sidebar h2 {
-    font-size: 60px;
-    font-weight: bold;
-    color:#F9F8F0
-  }
-  
-  .sidebar-buttons {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .sidebar-buttons li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar-buttons a {
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    color: #2F4670;
-    text-decoration: none;
-    padding: 25px;
-    border-radius: 0px;
-    background-color: #F9F8F0;
-  }
-  
-  .sidebar-buttons .admin-sidebar{
-    background-color: #2F4670;
-    color:bisque;
-  }
-  
-  .sidebar-buttons a:hover {
-    background-color: #7b8aa7;
-    color: bisque ;
-  
-  }
-  
-  .sidebar-buttons.logout-button {
-    margin-top: 35vh;
-  }
-  
-  .content {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: #F9F8F0;
-  }
   .table-row{
-    cursor: pointer;
-    transition-duration: 400ms;
+      transition-duration: 400ms;
   }
     .table-row:hover {
       background-color: #7b8aa7;

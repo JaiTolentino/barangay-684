@@ -9,19 +9,25 @@
 <body>
   <div class="container">
     <div class="sidebar">
-      <div class="Hi-Kap-con">
-        <h1>Hi Kap!</h1>
-        <h2>684</h2>
-      </div>  
-      <ul class="sidebar-buttons">
-        <li ><a href="/kapitan/home" >Home</a></li>
-        <li ><a href="/kapitan/admin" >Admin</a></li>
-        <li><a href="/kapitan/masterlist" class="admin-sidebar">Master Lists</a></li>
-        <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
-      </ul>
-      <ul class="sidebar-buttons logout-button">
-        <li><a href="/logout">Logout</a></li>
-      </ul>
+        <div class="upper-sidebar-container">
+            <div class="hi-kap">
+                <h1>Hi Kap!</h1>
+            </div>
+            <div class="brgy-number">
+                <h1>684</h1>
+            </div>
+        </div>
+        <div class="sidebar-buttons-container">
+            <div class="sidebar-upper-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/kapitan/home'"><p>Home</p></div>
+                <div class="sidebar-buttons" onclick="window.location.href='/kapitan/admin'"><p>Admin</p></div>
+                <div class="sidebar-buttons" id="selected-page" onclick="window.location.href='/kapitan/masterlist'"><p>Master List</p></div>
+                <div class="sidebar-buttons" onclick="window.location.href='http://www.manilahealthdepartment.com/'"><p>MHD Appointment</p></div>
+            </div>
+            <div class="sidebar-lower-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/logout'"><p>Logout</p></div>
+            </div>
+        </div>
     </div>
     <div class="content">
       <div class="registration-forms-container">
@@ -33,39 +39,40 @@
                     <input type="text" id="firstName" name="firstName" required>
                 </div>
                 <div class="fl-content">
+                    <label for="MI">Middle Name:</label>
+                    <input type="text" id="MI" name="MI">
+                </div>
+            </div>
+            <div class="FL-item">
+                <div class="fl-content">
                     <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="lastName" required>
                 </div>
+                <div class="fl-content">
+                    <label for="suffix">Suffix:</label>
+                    <select id="suffix" name="suffix">
+                    <option value=""></option>
+                    <option value="sr">Sr.</option>
+                    <option value="jr">Jr.</option>
+                    <option value="3rd">III</option>
+                    </select>
+                </div>
             </div>
-
             <div class="FL-item">
                 <div class="fl-content">
                     <label for="addressline1">Address line 1</label>
                     <input type="text" name="addressline1" id="addressline1" required>
                 </div>
-                <!-- optional from here -->
                 <div class="fl-content">
                     <label for="addressline2-container">Address line 2 (Optional)</label>
                     <input type="text" name="addressline2" id="addressline2">
                 </div>
             </div>    
             
-            <!-- Until here -->
             <div class="FL-item">
-                <div class="fl-content">
-                    <label for="addressbarangay">Barangay</label>
-                    <input type="text" name="addressbarangay" id="addressbarangay" required>
-                </div>
                 <div class="fl-content">
                     <label for="addresscity">City</label>
                     <input type="text" name="addresscity" id="addresscity" required>
-                </div>
-            </div>
-
-            <div class="FL-item">
-                <div class="fl-content">
-                    <label for="addresscountry">Country</label>
-                    <input type="text" name="addresscountry" id="addresscountry" required>
                 </div>
                 <div class="fl-content">
                     <label for="birthday">Birthday:</label>
@@ -94,9 +101,9 @@
                     <label for="status">Marital Status:</label>
                     <select id="status" name="status" required>
                     <option value="">Select Status</option>
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                    <option value="pending">Pending</option>
+                    <option value="Married">Married</option>
+                    <option value="Single">Single</option>
+                    <option value="Widowed">Widowed</option>
                     </select>
                 </div>
                 <div class="fl-content">
@@ -123,11 +130,10 @@
                     </div>
             </div>
             <div class="residents-button">
-                <input type="submit" value="Add Residents">
+                <input type="submit" value="add Residents">
             </div>
         </form>
       </div>
-    </div>
-  </div>
+</div>
 </body>
 </html>

@@ -8,20 +8,26 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-          <div class="Hi-Kap-con">
-            <h1>Hi Kap!</h1>
-            <h2>684</h2>
-          </div>  
-          <ul class="sidebar-buttons">
-            <li ><a href="/kapitan/home">Home</a></li>
-            <li ><a href="/kapitan/admin" >Admin</a></li>
-            <li><a href="/kapitan/masterlist" class="admin-sidebar">Master Lists</a></li>
-            <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
-        </ul>
-          <ul class="sidebar-buttons logout-button">
-            <li><a href="/logout">Logout</a></li>
-          </ul>
+       <div class="sidebar">
+          <div class="upper-sidebar-container">
+            <div class="hi-kap">
+                <h1>Hi Kap!</h1>
+            </div>
+            <div class="brgy-number">
+                <h1>684</h1>
+            </div>
+          </div>
+          <div class="sidebar-buttons-container">
+            <div class="sidebar-upper-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/kapitan/home'"><p>Home</p></div>
+                <div class="sidebar-buttons" onclick="window.location.href='/kapitan/admin'"><p>Admin</p></div>
+                <div class="sidebar-buttons" id="selected-page" onclick="window.location.href='/kapitan/masterlist'"><p>Master List</p></div>
+                <div class="sidebar-buttons" onclick="window.location.href='http://www.manilahealthdepartment.com/'"><p>MHD Appointment</p></div>
+            </div>
+            <div class="sidebar-lower-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/logout'"><p>Logout</p></div>
+            </div>
+          </div>
         </div>
     <div class="content">
         <div class="pcontainer1">
@@ -30,32 +36,34 @@
                     <table class="prospecttable">
                         <tr>                    
                             <th class="prospectth"><button type="submit">Full Name</button></th>
-                            <th class="prospectth"><button type="submit">Address</button></th>
                             <th class="prospectth"><button type="submit">Age</button></th>
                             <th class="prospectth"><button type="submit">BirthDate</button></th>
                             <th class="prospectth"><button type="submit">Gender</button></th>
                             <th class="prospectth"><button type="submit">Contact No.</button></th>
+                            <th class="prospectth"><button type="submit">Address</button></th>
                             <th class="prospectth"><button type="submit">Marital Status</button></th>
                             <th class="prospectth"><button type="submit">Remarks</button></th>
                             <th class="prospectth"><button type="submit">Medical Condition</button></th>
                             <th class="prospectth"><button type="submit">Voter</button></th>
                             <th class="prospectth"><button type="submit">PWD</button></th>
+                            <th></th>
                         </tr>
                         {{#each data}}
                             <form action="/edit-resident" method="post" id="edit-form">
                                 <input type="hidden" name="editresident" id="editresident" value="{{resident_id}}">
-                                    <tr class="table-row" onclick="submiteditform()">
-                                        <td>{{fname}} {{lname}}</td>
-                                        <td>{{address}}</td>
+                                    <tr class="table-row">
+                                        <td>{{fname}} {{mi}} {{lname}} {{suffix}}</td>
                                         <td>{{age}}</td>
                                         <td>{{birthdate}}</td>
                                         <td>{{gender}}</td>
                                         <td>{{contact}}</td>
+                                        <td>{{addressline1}} {{addressline2}} {{city}}</td>
                                         <td>{{status}}</td>
                                         <td>{{remarks}}</td>
                                         <td>{{medical_condition}}</td>
                                         <td>{{is_voter}}</td>
                                         <td>{{is_pwd}}</td>
+                                        <td><input type="submit" value="edit"></td>
                                     </tr>
                             </form>
                         {{/each}}
@@ -64,11 +72,5 @@
             </div>
         </div>
     </div>
-    <script>
-        let form = document.getElementById("edit-form");
-        function submiteditform(){
-            form.submit();
-        }
-    </script>
 </body>
 </html>

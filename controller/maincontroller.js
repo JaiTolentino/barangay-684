@@ -21,7 +21,7 @@ function calculateAge(birthDateString) {
     const currentDate = new Date();
     const ageInMilliseconds = currentDate - birthDate;
     const ageInYears = new Date(ageInMilliseconds).getUTCFullYear() - 1970;
-    return ageInYears+ " years old";
+    return ageInYears;
 }
 function convertToInternationalFormat(localNumber) {
     const countryCode = "+63";
@@ -32,11 +32,22 @@ function convertToInternationalFormat(localNumber) {
       return localNumber;
     }
   }
+function convertToLocalFormat(number){
+  const trimmedNumber = number.trim();
+  return trimmedNumber.replace("+63", "0");
+}
 function checkboxValue(checkbox){
   if (checkbox === "yes"){
     return "yes";
   }else{
     return "no";
+  }
+}
+function checkboxeditvalue(checkbox){
+  if(checkbox === "yes"){
+    return true;
+  }else{
+    return false;
   }
 }
 function birthdateToWordedFormat(birthdate) {
@@ -48,4 +59,4 @@ function birthdateToWordedFormat(birthdate) {
   const monthWorded = months[Number(month) - 1];
   return monthWorded + " " + parseInt(day, 10)+", "+ year;
 }
-module.exports = {checkboxValue, encryptPassword, comparePassword, createAdminId, calculateAge, convertToInternationalFormat, birthdateToWordedFormat};
+module.exports = {convertToLocalFormat,checkboxeditvalue, checkboxValue, encryptPassword, comparePassword, createAdminId, calculateAge, convertToInternationalFormat, birthdateToWordedFormat};
