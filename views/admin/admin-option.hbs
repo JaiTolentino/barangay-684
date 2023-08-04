@@ -9,19 +9,25 @@
 <body>
   <div class="container">
     <div class="sidebar">
-      <div class="Hi-Kap-con">
-        <h1>Hi Admin!</h1>
-        <h2>684</h2>
-      </div>  
-      <ul class="sidebar-buttons">
-            <li><a href="/admin/home">Home</a></li>
-            <li><a href="/admin/masterlist" class="admin-sidebar">Master Lists</a></li>
-            <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
-          </ul>
-      <ul class="sidebar-buttons logout-button">
-        <li><a href="/logout">Logout</a></li>
-      </ul>
-    </div>
+          <div class="upper-sidebar-container">
+            <div class="hi-kap">
+                <h1>Hi Kap!</h1>
+            </div>
+            <div class="brgy-number">
+                <h1>684</h1>
+            </div>
+          </div>
+          <div class="sidebar-buttons-container">
+            <div class="sidebar-upper-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/admin/home'"><p>Home</p></div>
+                <div class="sidebar-buttons"  id="selected-page" onclick="window.location.href='/admin/masterlist'"><p>Master List</p></div>
+                <div class="sidebar-buttons" onclick="window.location.href='http://www.manilahealthdepartment.com/'"><p>MHD Appointment</p></div>
+            </div>
+            <div class="sidebar-lower-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/logout'"><p>Logout</p></div>
+            </div>
+          </div>
+        </div>
     <div class="content">
       <div class="container-1" onclick="window.location.href='/admin/masterlist/add'">
           <div class="icon-upper">

@@ -9,36 +9,42 @@
 <body>
     <div class="container">
         <div class="sidebar">
-          <div class="Hi-Kap-con">
-            <h1>Hi Kap!</h1>
-            <h2>684</h2>
-          </div>  
-        <ul class="sidebar-buttons">
-            <li ><a href="/kapitan/home">Home</a></li>
-            <li ><a href="/kapitan/admin" class="admin-sidebar">Admin</a></li>
-            <li><a href="/kapitan/masterlist">Master Lists</a></li>
-            <li><a href="http://www.manilahealthdepartment.com/">MHD Appointment</a></li>
-        </ul>
-          <ul class="sidebar-buttons logout-button">
-            <li><a href="/logout">Logout</a></li>
-          </ul>
+          <div class="upper-sidebar-container">
+            <div class="hi-kap">
+                <h1>Hi Kap!</h1>
+            </div>
+            <div class="brgy-number">
+                <h1>684</h1>
+            </div>
+          </div>
+          <div class="sidebar-buttons-container">
+            <div class="sidebar-upper-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/kapitan/home'"><p>Home</p></div>
+                <div class="sidebar-buttons" id="selected-page" onclick="window.location.href='/kapitan/admin'"><p>Admin</p></div>
+                <div class="sidebar-buttons" onclick="window.location.href='/kapitan/masterlist'"><p>Master List</p></div>
+                <div class="sidebar-buttons" onclick="window.location.href='http://www.manilahealthdepartment.com/'"><p>MHD Appointment</p></div>
+            </div>
+            <div class="sidebar-lower-buttons">
+                <div class="sidebar-buttons" onclick="window.location.href='/logout'"><p>Logout</p></div>
+            </div>
+          </div>
         </div>
-    <div class="content">
-    <div class="pcontainer1">
-        <div class="plist">
-            <div class="section-centeredflex">
-                <table class="prospecttable">
-                    <tr>                    
-                        <th class="prospectth">Username</th>
-                        <th class="prospectth">Position</th>
-                    </tr>
-                    {{#each data}}
-                    <tr>
-                        <td>{{username}}</td>
-                        <td>{{position}}</td>
-                    </tr>
-                    {{/each}}
-                </table>
+        <div class="content">
+            <div class="pcontainer1">
+                <div class="plist">
+                    <table class="prospecttable">
+                        <tr>                    
+                            <th class="prospectth">Username</th>
+                            <th class="prospectth">Position</th>
+                        </tr>
+                        {{#each data}}
+                        <tr>
+                            <td>{{username}}</td>
+                            <td>{{position}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
             </div>
         </div>
     </div>
